@@ -1,6 +1,3 @@
-
-//
-// Disclamer:
 // ----------
 //
 // This code will work only if you selected window, graphics and audio.
