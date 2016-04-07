@@ -7,24 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A7FEA9311CB6AB850036ED36 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9301CB6AB850036ED36 /* ResourcePath.mm */; };
 		A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9331CB6AB850036ED36 /* main.cpp */; };
-		A7FEA9371CB6AB850036ED36 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7FEA9361CB6AB850036ED36 /* cute_image.jpg */; };
-		A7FEA9391CB6AB850036ED36 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = A7FEA9381CB6AB850036ED36 /* nice_music.ogg */; };
-		A7FEA93B1CB6AB850036ED36 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7FEA93A1CB6AB850036ED36 /* sansation.ttf */; };
-		A7FEA93D1CB6AB850036ED36 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FEA93C1CB6AB850036ED36 /* icon.png */; };
+		A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9431CB6ADEC0036ED36 /* Character.cpp */; };
+		A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9461CB6AE160036ED36 /* Elf.cpp */; };
+		A7FEA94B1CB6AE3C0036ED36 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9491CB6AE3C0036ED36 /* TileMap.cpp */; };
+		A7FEA94E1CB6AE660036ED36 /* Monster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA94C1CB6AE660036ED36 /* Monster.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A7FEA92B1CB6AB850036ED36 /* Roguemon  2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roguemon  2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FEA92F1CB6AB850036ED36 /* Roguemon  2.0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Roguemon  2.0-Info.plist"; sourceTree = "<group>"; };
-		A7FEA9301CB6AB850036ED36 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		A7FEA9321CB6AB850036ED36 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		A7FEA9331CB6AB850036ED36 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A7FEA9361CB6AB850036ED36 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		A7FEA9381CB6AB850036ED36 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		A7FEA93A1CB6AB850036ED36 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		A7FEA93C1CB6AB850036ED36 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		A7FEA9431CB6ADEC0036ED36 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
+		A7FEA9441CB6ADEC0036ED36 /* Character.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Character.hpp; sourceTree = "<group>"; };
+		A7FEA9461CB6AE160036ED36 /* Elf.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Elf.cpp; sourceTree = "<group>"; };
+		A7FEA9471CB6AE160036ED36 /* Elf.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Elf.hpp; sourceTree = "<group>"; };
+		A7FEA9491CB6AE3C0036ED36 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TileMap.cpp; sourceTree = "<group>"; };
+		A7FEA94A1CB6AE3C0036ED36 /* TileMap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TileMap.hpp; sourceTree = "<group>"; };
+		A7FEA94C1CB6AE660036ED36 /* Monster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Monster.cpp; sourceTree = "<group>"; };
+		A7FEA94D1CB6AE660036ED36 /* Monster.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Monster.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +58,15 @@
 		A7FEA92D1CB6AB850036ED36 /* Roguemon  2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				A7FEA9301CB6AB850036ED36 /* ResourcePath.mm */,
-				A7FEA9321CB6AB850036ED36 /* ResourcePath.hpp */,
 				A7FEA9331CB6AB850036ED36 /* main.cpp */,
+				A7FEA9431CB6ADEC0036ED36 /* Character.cpp */,
+				A7FEA9441CB6ADEC0036ED36 /* Character.hpp */,
+				A7FEA9461CB6AE160036ED36 /* Elf.cpp */,
+				A7FEA9471CB6AE160036ED36 /* Elf.hpp */,
+				A7FEA9491CB6AE3C0036ED36 /* TileMap.cpp */,
+				A7FEA94A1CB6AE3C0036ED36 /* TileMap.hpp */,
+				A7FEA94C1CB6AE660036ED36 /* Monster.cpp */,
+				A7FEA94D1CB6AE660036ED36 /* Monster.hpp */,
 				A7FEA9351CB6AB850036ED36 /* Resources */,
 				A7FEA92E1CB6AB850036ED36 /* Supporting Files */,
 			);
@@ -77,10 +84,6 @@
 		A7FEA9351CB6AB850036ED36 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A7FEA9361CB6AB850036ED36 /* cute_image.jpg */,
-				A7FEA9381CB6AB850036ED36 /* nice_music.ogg */,
-				A7FEA93A1CB6AB850036ED36 /* sansation.ttf */,
-				A7FEA93C1CB6AB850036ED36 /* icon.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -142,10 +145,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7FEA93D1CB6AB850036ED36 /* icon.png in Resources */,
-				A7FEA93B1CB6AB850036ED36 /* sansation.ttf in Resources */,
-				A7FEA9391CB6AB850036ED36 /* nice_music.ogg in Resources */,
-				A7FEA9371CB6AB850036ED36 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,8 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7FEA94B1CB6AE3C0036ED36 /* TileMap.cpp in Sources */,
+				A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */,
+				A7FEA94E1CB6AE660036ED36 /* Monster.cpp in Sources */,
 				A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */,
-				A7FEA9311CB6AB850036ED36 /* ResourcePath.mm in Sources */,
+				A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
