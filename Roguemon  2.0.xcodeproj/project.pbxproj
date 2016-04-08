@@ -63,10 +63,10 @@
 				A7FEA9441CB6ADEC0036ED36 /* Character.hpp */,
 				A7FEA9461CB6AE160036ED36 /* Elf.cpp */,
 				A7FEA9471CB6AE160036ED36 /* Elf.hpp */,
-				A7FEA9491CB6AE3C0036ED36 /* TileMap.cpp */,
-				A7FEA94A1CB6AE3C0036ED36 /* TileMap.hpp */,
 				A7FEA94C1CB6AE660036ED36 /* Monster.cpp */,
 				A7FEA94D1CB6AE660036ED36 /* Monster.hpp */,
+				A7FEA9491CB6AE3C0036ED36 /* TileMap.cpp */,
+				A7FEA94A1CB6AE3C0036ED36 /* TileMap.hpp */,
 				A7FEA9351CB6AB850036ED36 /* Resources */,
 				A7FEA92E1CB6AB850036ED36 /* Supporting Files */,
 			);
@@ -313,6 +313,7 @@
 				A7FEA9421CB6AB850036ED36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

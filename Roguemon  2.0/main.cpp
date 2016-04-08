@@ -8,6 +8,7 @@
 #include "Elf.hpp"
 #include "Monster.hpp"
 #include <unistd.h>
+#include <iostream>
 
 int getPressedKey(){
     if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -28,9 +29,67 @@ int getPressedKey(){
     else return -1;
 }
 
-bool MenuLoop(sf::RenderWindow *window , sf::Text text){
+bool MenuLoop(sf::RenderWindow *window){
+    
+    
+    sf::Text elfName, druidName, paladinName;
+    elfName.setString("Legolas");
+    druidName.setString("Radagast");
+    paladinName.setString("Fra il giusto");
+    
+    
+     sf::Font font;
+     if (!font.loadFromFile("Lobster_1.3.otf"))
+     {
+     std::cout<< "failed to open font"<<std::endl;
+     }
+     sf::Text text;
+     text.setFont(font);
+     text.setString("Menu");
+     text.setCharacterSize(36); // in pixels, not points!
+     text.setColor(sf::Color::Red);
+     text.setPosition(32*7, 0);
+    
+    //Character frontal sprites
+    sf::Texture elfTexture, druidTexture, paladinTexture;
+    sf::Sprite elfSprite, druidSprite, paladinSprite;
+    
+    if(!elfTexture.loadFromFile("Elf.png"))
+        std::cout<<"Error, could not load elf texture"<<std::endl;
+    elfSprite.setTexture(elfTexture);
+    elfSprite.setTextureRect(sf::IntRect(0,64,32,32));
+    elfSprite.setPosition(32*3,100);
+    
+    if(!druidTexture.loadFromFile("Druid.png"))
+        std::cout<<"Error, could not load druid texture"<<std::endl;
+    druidSprite.setTexture(druidTexture);
+    druidSprite.setTextureRect(sf::IntRect(0,32,32,32));
+    druidSprite.setPosition(32*7,100);
+    
+    if(!paladinTexture.loadFromFile("Paladin.png"))
+        std::cout<<"Error, could not load paladin texture"<<std::endl;
+    paladinSprite.setTexture(paladinTexture);
+    paladinSprite.setTextureRect(sf::IntRect(0,32,32,32));
+    paladinSprite.setPosition(32*11,100);
+    
+    
+    //animazione quadrato di selezione
+    
+    
+    
+    
+    /*if(!playerTexture.loadFromFile(addr))//carico l immag del persongg
+        std::cout<<"image2 not found"<<std::endl;
+    
+    playersprite.setTexture(playerTexture);
+    playersprite.setPosition(64,64);
+*/
+    
     window->clear();
     window->draw(text);
+    window->draw(elfSprite);
+    window->draw(druidSprite);
+    window->draw(paladinSprite);
     window->display();
     if(getPressedKey() == 5){
         window->clear();
@@ -52,16 +111,13 @@ int main()
     // create the window
     sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
     
-    sf::Font font;
-    if (!font.loadFromFile("Lobster_1.3.otf"))
-    {
-        std::cout<< "failed to open font"<<std::endl;
-    }
-    sf::Text text;
-    text.setFont(font);
-    text.setString("Menu");
-    text.setCharacterSize(100); // in pixels, not points!
-    text.setColor(sf::Color::Red);
+    
+    // Menu text items
+    
+    
+    
+    //----------
+
     
     // set the text style
     //text.setStyle(sf::Text::Bold | sf::Text::Underlined);
@@ -135,7 +191,7 @@ int main()
         }
         
         if(menu){
-            if(!MenuLoop(&window , text)){
+            if(!MenuLoop(&window)){
                 menu = false;
             }
         }
