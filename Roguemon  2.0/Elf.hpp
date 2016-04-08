@@ -25,7 +25,9 @@
 class Elf : public Character{
 public:
     
-    Elf(int x, int y, int id){
+    Elf(){};
+    
+    void init(int x, int y, int id , std::string addr){
         this->id =id;
         position.x = x;
         position.y = y;
@@ -33,11 +35,15 @@ public:
         source.y = Down;
         updateFrame = false;
         frameCounter=0, switchFrame=200, frameSpeed = 500;
-        initP("pene");
+        initP(addr);
     }
     
     ~Elf(){
         
+    }
+    
+    int getId(){
+        return id;
     }
     
     void initP(std::string addr);

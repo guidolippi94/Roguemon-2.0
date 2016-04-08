@@ -26,7 +26,9 @@
 class Monster : public Character{
 public:
     
-    Monster(int x, int y, int id , std::string addr){
+    Monster(){};
+    
+    void init(int x, int y, int id , std::string addr){
         this->id =id;
         position.x = x;
         position.y = y;
@@ -39,6 +41,10 @@ public:
     
     ~Monster(){
         
+    }
+    
+    int getId(){
+        return id;
     }
     
     void initP(std::string addr);

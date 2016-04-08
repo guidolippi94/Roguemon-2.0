@@ -20,7 +20,11 @@ public:
     
     Character();
     
+    virtual void init(int x, int y, int id , std::string addr) = 0;
+    
     virtual ~Character() = 0;
+    
+    virtual int getId() = 0;
     
     virtual void initP(std::string addr) = 0;
     

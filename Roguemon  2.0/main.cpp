@@ -7,6 +7,7 @@
 #include "TileMap.hpp"
 #include "Elf.hpp"
 #include "Monster.hpp"
+#include "CharacterFactory.hpp"
 #include <unistd.h>
 #include <iostream>
 
@@ -167,14 +168,19 @@ int main()
         return -1;
     
     std::vector<Character*> characters;
+    std::vector<Character*>::const_iterator itr;
     
-    Elf *elfo = new Elf(1,1, 5);
-    Monster *mostro = new Monster(2,2,6 , "mewtwo.png");
-    Monster *mostro2 = new Monster(3,3,7, "greeninja.png");
+    characters.push_back(((Elf*)CharacterFactory::makeCharacter(CharacterFactory::Elfo)));
+    characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
+    characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     
-    characters.push_back(mostro);
-    characters.push_back(mostro2);
-    characters.push_back(elfo);
+    characters.at(0)->init(1,1,1 , "");
+    characters.at(1)->init(2,2,2 , "mewtwo.png");
+    characters.at(2)->init(3,3,3 , "greeninja.png");
+    
+    /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
+        (*itr)->init();
+    }*/
     
     sf::Clock c;
     
@@ -196,9 +202,9 @@ int main()
             }
         }
         else{
-            mostro->SetTextureState();
-            elfo->SetTextureState();
-            mostro2->SetTextureState();
+            for (itr = characters.begin() ; itr != characters.end() ; itr++){
+                (*itr)->SetTextureState();
+            }
             
             // draw the map
             window.clear();
@@ -209,12 +215,12 @@ int main()
                 int k = getPressedKey();
                 if(k != -1){
                     for(int index = 2 ; index < 33 ; index++){
-                        elfo->walk(mappa, index , k);
+                        characters.at(0)->walk(mappa, index , k);
                         window.clear();
                         window.draw(map);
-                        window.draw(elfo->getSprite());
-                        window.draw(mostro->getSprite());
-                        window.draw(mostro2->getSprite());
+                        for (itr = characters.begin() ; itr != characters.end() ; itr++){
+                            window.draw((*itr)->getSprite());
+                        }
                         window.display();
                         usleep(6000);
                     }
@@ -224,36 +230,33 @@ int main()
             //std::cout << c.getElapsedTime().asMilliseconds() << std::endl;
             if (c.getElapsedTime().asMilliseconds() > 150) {
                 srand (c.getElapsedTime().asMicroseconds());
-                int action = rand() % 4 +1;
-                srand (c.getElapsedTime().asMilliseconds());
-                int action2 = rand() % 4 +1;
+                int action = rand() % 4 + 1;
                 for(int index = 2 ; index < 33 ; index++){
-                    mostro->walk(mappa , index , action);
-                    mostro2->walk(mappa, index, action2);
+                    for (itr = characters.begin() ; itr != characters.end()-1 ; ){
+                        itr++;
+                        (*itr)->walk(mappa, index, action);
+                    }
                     window.clear();
                     window.draw(map);
-                    window.draw(elfo->getSprite());
-                    window.draw(mostro2->getSprite());
-                    window.draw(mostro->getSprite());
+                    for (itr = characters.begin() ; itr != characters.end() ; itr++){
+                        window.draw((*itr)->getSprite());
+                    }
                     window.display();
                     usleep(6000);
                 }
                 walk=true;
                 c.restart();
             }
-            if(elfo->getPos() == mostro->getPos()){
-                std::cout << "Let's fight1!" << std::endl;
+            for (itr = characters.begin() ; itr != characters.end()-1 ; ){
+                itr++;
+                if(characters.at(0)->getPos() == (*itr)->getPos() ){
+                    std::cout << "Monster " << (*itr)->getId() << " wants to fight!";
+                }
             }
-            if(elfo->getPos() == mostro2->getPos()){
-                std::cout << "Let's fight2!" << std::endl;
+            for (itr = characters.begin() ; itr != characters.end() ; itr++){
+                (*itr)->SetTextureState();
+                window.draw((*itr)->getSprite());
             }
-            
-            mostro->SetTextureState();
-            elfo->SetTextureState();
-            mostro2->SetTextureState();
-            window.draw(mostro->getSprite());
-            window.draw(elfo->getSprite());
-            window.draw(mostro2->getSprite());
             window.display();
             window.clear();
             

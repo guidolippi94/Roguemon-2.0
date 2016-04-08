@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A59744841CB8508300517644 /* CharacterFactory.cpp */; };
 		A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9331CB6AB850036ED36 /* main.cpp */; };
 		A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9431CB6ADEC0036ED36 /* Character.cpp */; };
 		A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9461CB6AE160036ED36 /* Elf.cpp */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A59744841CB8508300517644 /* CharacterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterFactory.cpp; sourceTree = "<group>"; };
+		A59744851CB8508300517644 /* CharacterFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterFactory.hpp; sourceTree = "<group>"; };
 		A7FEA92B1CB6AB850036ED36 /* Roguemon  2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roguemon  2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FEA92F1CB6AB850036ED36 /* Roguemon  2.0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Roguemon  2.0-Info.plist"; sourceTree = "<group>"; };
 		A7FEA9331CB6AB850036ED36 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -59,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				A7FEA9331CB6AB850036ED36 /* main.cpp */,
+				A59744841CB8508300517644 /* CharacterFactory.cpp */,
+				A59744851CB8508300517644 /* CharacterFactory.hpp */,
 				A7FEA9431CB6ADEC0036ED36 /* Character.cpp */,
 				A7FEA9441CB6ADEC0036ED36 /* Character.hpp */,
 				A7FEA9461CB6AE160036ED36 /* Elf.cpp */,
@@ -175,6 +180,7 @@
 				A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */,
 				A7FEA94E1CB6AE660036ED36 /* Monster.cpp in Sources */,
 				A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */,
+				A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */,
 				A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
