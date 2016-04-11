@@ -38,7 +38,7 @@ bool MenuLoop(sf::RenderWindow *window){
     druidName.setString("Radagast");
     paladinName.setString("Fra il giusto");
     
-    
+     //Font
      sf::Font font;
      if (!font.loadFromFile("Lobster_1.3.otf"))
      {
@@ -118,11 +118,6 @@ int main()
     
     
     //----------
-
-    
-    // set the text style
-    //text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-    // inside the main loop, between window.clear() and window.display()
     
     
     
@@ -208,7 +203,6 @@ int main()
             
             // draw the map
             window.clear();
-            
             window.draw(map);
             
             if (walk) {
@@ -250,7 +244,7 @@ int main()
             for (itr = characters.begin() ; itr != characters.end()-1 ; ){
                 itr++;
                 if(characters.at(0)->getPos() == (*itr)->getPos() ){
-                    std::cout << "Monster " << (*itr)->getId() << " wants to fight!";
+                    std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
                 }
             }
             for (itr = characters.begin() ; itr != characters.end() ; itr++){
