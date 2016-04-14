@@ -167,6 +167,8 @@ int main()
     if (!map.load(sf::Vector2u(32, 32), level, 16, 8))
         return -1;
     
+    sf::Clock c;
+
     std::vector<Character*> characters;
     std::vector<Character*>::const_iterator itr;
     
@@ -181,8 +183,6 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    
-    sf::Clock c;
     
     // run the main loop
     while (window.isOpen())
@@ -234,7 +234,7 @@ int main()
                 for(int index = 2 ; index < 33 ; index++){
                     for (itr = characters.begin() ; itr != characters.end()-1 ; ){
                         itr++;
-                        (*itr)->walk(mappa, index, action);
+                        (*itr)->walk(mappa, index, (action+(*itr)->getId())%4+1);
                     }
                     window.clear();
                     window.draw(map);
