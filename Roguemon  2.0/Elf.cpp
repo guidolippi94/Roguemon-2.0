@@ -33,7 +33,7 @@ void Elf::SetTextureState(){
 }
 
 
-void Elf::walk(int mappa[100][100] , int index , int action)
+void Elf::walk(int mappa[8][16] , int index , int action)
 {
     bool walked = false;
     if ( action == 1){ //indicheranno dove si muove il player nel display
