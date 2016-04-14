@@ -30,7 +30,7 @@ void Monster::SetTextureState(){
     if (updateFrame) {
         
         frameCounter = 0;
-        source.x ++;//la camminata animata perche scorre lungo la riga y
+        source.x ++;//la camminata animata perchè scorre lungo la riga y
         
         if(source.x * 32 >= playerTexture.getSize().x)//e questo è per far ripartire la riga
             source.x=0;
