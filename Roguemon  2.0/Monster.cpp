@@ -42,7 +42,7 @@ void Monster::SetTextureState(){
 }
 
 
-void Monster::walk(int mappa[8][16], int index , int action)
+void Monster::walk(int mappa[100][100], int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Up;

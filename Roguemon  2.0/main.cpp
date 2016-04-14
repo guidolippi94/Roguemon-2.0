@@ -10,6 +10,8 @@
 #include "CharacterFactory.hpp"
 #include <unistd.h>
 #include <iostream>
+#include "MenuLoop.hpp"
+
 
 int getPressedKey(){
     if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -27,78 +29,19 @@ int getPressedKey(){
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
         return 5;
     }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+        return 6;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
+        return 7;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
+        return 8;
+    }
+    
     else return -1;
 }
 
-bool MenuLoop(sf::RenderWindow *window){
-    
-    
-    sf::Text elfName, druidName, paladinName;
-    elfName.setString("Legolas");
-    druidName.setString("Radagast");
-    paladinName.setString("Fra il giusto");
-    
-     //Font
-     sf::Font font;
-     if (!font.loadFromFile("Lobster_1.3.otf"))
-     {
-     std::cout<< "failed to open font"<<std::endl;
-     }
-     sf::Text text;
-     text.setFont(font);
-     text.setString("Menu");
-     text.setCharacterSize(36); // in pixels, not points!
-     text.setColor(sf::Color::Red);
-     text.setPosition(32*7, 0);
-    
-    //Character frontal sprites
-    sf::Texture elfTexture, druidTexture, paladinTexture;
-    sf::Sprite elfSprite, druidSprite, paladinSprite;
-    
-    if(!elfTexture.loadFromFile("Elf.png"))
-        std::cout<<"Error, could not load elf texture"<<std::endl;
-    elfSprite.setTexture(elfTexture);
-    elfSprite.setTextureRect(sf::IntRect(0,64,32,32));
-    elfSprite.setPosition(32*3,100);
-    
-    if(!druidTexture.loadFromFile("Druid.png"))
-        std::cout<<"Error, could not load druid texture"<<std::endl;
-    druidSprite.setTexture(druidTexture);
-    druidSprite.setTextureRect(sf::IntRect(0,32,32,32));
-    druidSprite.setPosition(32*7,100);
-    
-    if(!paladinTexture.loadFromFile("Paladin.png"))
-        std::cout<<"Error, could not load paladin texture"<<std::endl;
-    paladinSprite.setTexture(paladinTexture);
-    paladinSprite.setTextureRect(sf::IntRect(0,32,32,32));
-    paladinSprite.setPosition(32*11,100);
-    
-    
-    //animazione quadrato di selezione
-    
-    
-    
-    
-    /*if(!playerTexture.loadFromFile(addr))//carico l immag del persongg
-        std::cout<<"image2 not found"<<std::endl;
-    
-    playersprite.setTexture(playerTexture);
-    playersprite.setPosition(64,64);
-*/
-    
-    window->clear();
-    window->draw(text);
-    window->draw(elfSprite);
-    window->draw(druidSprite);
-    window->draw(paladinSprite);
-    window->display();
-    if(getPressedKey() == 5){
-        window->clear();
-        return false;
-    }else{
-        return true;
-    }
-}
 
 void GameLoop(){
     
@@ -108,21 +51,27 @@ int main()
 {
     bool walk = true;
     bool menu = true;
+    bool firstTimeRectangle=true;
     
     // create the window
-    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
-    
-    
-    // Menu text items
-    
-    
-    
-    //----------
-    
+    sf::RenderWindow window(sf::VideoMode(32*16, 32*11), "prova");
     
     
     // define the level with an array of tile indices  //la window è 32*16,32*8
-    const int level[] =
+    
+        int level[10000];
+        for(int j=0; j<10000; j++){
+            level[j]=rand()%2;
+            std::cout<<level[j];
+        }
+    int mappa[100][100];
+    for(int i=0; i<100; i++){
+        for(int j=0; j<100; j++){
+            mappa[i][j]=rand()%2;
+        }
+    }
+    
+    /* const int level[] =
     {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
@@ -131,10 +80,31 @@ int main()
         0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
         0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
         0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     };
     
-    int mappa[8][16]=
+    int mappa[29][16]=
     {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -143,8 +113,31 @@ int main()
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
+    
+    */
     std::cout << mappa[0][0]<<std::endl;
     /*for(int i = 0; i < 8; i++){
      for(int j = 0; j < 16; j++){
@@ -159,7 +152,7 @@ int main()
     
     // create the tilemap from the level definition
     TileMap map;
-    if (!map.load(sf::Vector2u(32, 32), level, 16, 8))
+    if (!map.load(sf::Vector2u(32, 32), level, 100, 100))
         return -1;
     
     sf::Clock c;
@@ -189,10 +182,12 @@ int main()
         {
             if(event.type == sf::Event::Closed)
                 window.close();
+            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+                window.close();
         }
         
         if(menu){
-            if(!MenuLoop(&window)){
+            if(!MenuLoop(&window, &firstTimeRectangle)){
                 menu = false;
             }
         }

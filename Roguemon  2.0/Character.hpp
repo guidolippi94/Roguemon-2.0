@@ -28,7 +28,7 @@ public:
     
     virtual void initP(std::string addr) = 0;
     
-    virtual void walk(int mappa[8][16], int index , int action) = 0;
+    virtual void walk(int mappa[100][100], int index , int action) = 0;
     
     virtual sf::Vector2i getPos() = 0;
     
