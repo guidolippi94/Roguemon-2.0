@@ -50,11 +50,9 @@ void GameLoop(){
 int main()
 {
     bool walk = true;
-    bool menu = true;
-    bool firstTimeRectangle=true;
+   
     
     // create the window
-    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
     
     
     // define the level with an array of tile indices  //la window è 32*16,32*8
@@ -85,16 +83,7 @@ int main()
     
     
     std::cout << mappa[0][0]<<std::endl;
-    /*for(int i = 0; i < 8; i++){
-     for(int j = 0; j < 16; j++){
-     if(level[ i + j * 16] == 0){
-     mappa[i][j] = 0;
-     }
-     else{
-     mappa[i][j] = 1;
-     }
-     }
-     }*/
+
     
     // create the tilemap from the level definition
     TileMap map;
@@ -117,7 +106,9 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    
+    MenuLoop();
+    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
+
     // run the main loop
     while (window.isOpen())
     {
@@ -128,16 +119,9 @@ int main()
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-                window.close();
         }
         
-        if(menu){
-            if(!MenuLoop(&window, &firstTimeRectangle)){
-                menu = false;
-            }
-        }
-        else{
+        
             for (itr = characters.begin() ; itr != characters.end() ; itr++){
                 (*itr)->SetTextureState();
             }
@@ -196,7 +180,7 @@ int main()
             window.clear();
             
         }
-    }
+    
     
     return 0;
 }

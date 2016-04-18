@@ -18,8 +18,10 @@
 
 int getPressedKey();
 
-bool MenuLoop(sf::RenderWindow *window, bool *firstTimeRectangle){
-    
+bool MenuLoop(){
+    sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "prova");
+    int k=0;
+
     sf::Text elfName, druidName, paladinName;
     elfName.setString("Legolas");
     druidName.setString("Radagast");
@@ -67,41 +69,34 @@ bool MenuLoop(sf::RenderWindow *window, bool *firstTimeRectangle){
     rectangle.setOutlineColor(sf::Color::Green);
     rectangle.setOutlineThickness(5);
     rectangle.setFillColor(sf::Color::Color(0,0,0,0));
-    if(firstTimeRectangle){
-        rectangle.setPosition(100, 100);
-        *firstTimeRectangle=false;
-        std::cout<<*firstTimeRectangle<<std::endl;
-    }
+    rectangle.setPosition(32*3-4, 100);
+    sf::Event eevv;
     
-    if(getPressedKey()==6){
-        rectangle.setPosition((32*3)-4,100);
-    }
-    else if(getPressedKey()==7){
-        rectangle.setPosition((32*7)-4,100);
-    }
-    else if(getPressedKey()==8){
-        rectangle.setPosition((32*11)-4,100);
-    }
-
-    
-    /*if(!playerTexture.loadFromFile(addr))//carico l immag del persongg
-     std::cout<<"image2 not found"<<std::endl;
-     
-     playersprite.setTexture(playerTexture);
-     playersprite.setPosition(64,64);
-     */
-    
-    window->clear();
-    window->draw(text);
-    window->draw(elfSprite);
-    window->draw(druidSprite);
-    window->draw(paladinSprite);
-    window->draw(rectangle);
-    window->display();
-    if(getPressedKey() == 5){
-        window->clear();
-        return false;
-    }else{
-        return true;
+    while (window1.isOpen()) {
+        
+        while (window1.pollEvent(eevv))
+        {
+            if(eevv.type == sf::Event::Closed)
+                window1.close();
+            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+                window1.close();
+            else if (eevv.key.code==sf::Keyboard::Left)
+                rectangle.setPosition((32*3)-4,100);
+            else if(eevv.key.code==sf::Keyboard::Up)
+                rectangle.setPosition((32*7)-4,100);
+            else if(eevv.key.code==sf::Keyboard::Right)
+                rectangle.setPosition((32*11)-4,100);
+            else if(eevv.key.code==sf::Keyboard::Return)
+                window1.close();
+            
+            window1.clear();
+            window1.draw(text);
+            window1.draw(elfSprite);
+            window1.draw(druidSprite);
+            window1.draw(paladinSprite);
+            window1.draw(rectangle);
+            window1.display();
+         }
     }
 }
+
