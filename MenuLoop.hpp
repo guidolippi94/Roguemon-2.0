@@ -20,7 +20,7 @@ int getPressedKey();
 
 int MenuLoop(){
     sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "prova");
-    int k=0;  //a seconda dell'ultimo tasto premuto nel menu ritorna o 1 o 2 o 3
+    int k=1;  //a seconda dell'ultimo tasto premuto nel menu ritorna o 1 o 2 o 3
 
     sf::Text elfName, druidName, paladinName;
     elfName.setString("Legolas");

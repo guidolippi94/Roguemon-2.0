@@ -14,6 +14,12 @@ Character* CharacterFactory::makeCharacter(CharacterFactory::CharacterType type)
         case CharacterFactory::Elfo:
             ch = new Elf::Elf();
             break;
+        case CharacterFactory::Druid:
+            ch = new Druid::Druid();
+            break;
+        case CharacterFactory::Paladin:
+            ch = new Paladin::Paladin();
+            break;
         case CharacterFactory::Poke:
             ch = new Monster::Monster();
             break;

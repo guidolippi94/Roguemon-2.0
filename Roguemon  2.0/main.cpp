@@ -92,8 +92,25 @@ int main()
 
     std::vector<Character*> characters;
     std::vector<Character*>::const_iterator itr;
-    
-    characters.push_back(((Elf*)CharacterFactory::makeCharacter(CharacterFactory::Elfo)));
+    p = MenuLoop();
+
+    switch (p) {
+        case 1:
+            characters.push_back(((Elf*)CharacterFactory::makeCharacter(CharacterFactory::Elfo)));
+
+            break;
+        case 2:
+            characters.push_back(((Druid*)CharacterFactory::makeCharacter(CharacterFactory::Druid)));
+            
+            break;
+        case 3:
+            characters.push_back(((Paladin*)CharacterFactory::makeCharacter(CharacterFactory::Paladin)));
+            
+            break;
+            
+        default:
+            break;
+    }
     characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     
@@ -104,7 +121,6 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    p = MenuLoop();
     std::cout<<p<<std::endl;
     
     sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
