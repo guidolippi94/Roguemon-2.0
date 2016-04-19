@@ -82,6 +82,7 @@ bool MenuLoop(){
                 window1.close();
             else if (eevv.key.code==sf::Keyboard::Left)
                 rectangle.setPosition((32*3)-4,100);
+            
             else if(eevv.key.code==sf::Keyboard::Up)
                 rectangle.setPosition((32*7)-4,100);
             else if(eevv.key.code==sf::Keyboard::Right)
