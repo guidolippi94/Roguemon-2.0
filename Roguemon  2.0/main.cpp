@@ -1,6 +1,5 @@
 
 
-
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
@@ -21,7 +20,7 @@ int main()
     
     // define the level with an array of tile indices  //la window è 32*16,32*8
 
-     const int level[] =
+     const int level[] = //mappa
     {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
@@ -33,7 +32,7 @@ int main()
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     };
     
-    int mappa[8][16]=
+    int mappa[8][16]=  //walkable su 0
     {
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
         {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -45,9 +44,7 @@ int main()
         {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
     };
     
-    
-    std::cout << mappa[0][0]<<std::endl;
-
+    //std::cout << mappa[0][0]<<std::endl;
     
     // create the tilemap from the level definition
     TileMap map;
@@ -58,39 +55,37 @@ int main()
 
     std::vector<Character*> characters;
     std::vector<Character*>::const_iterator itr;
+    
     p = MenuLoop();
     
-    switch (p) {
+    switch (p) {  //a seconda di cosa ritorna menuloop:...
+            
         case 0:
             try{
-                throw std::invalid_argument( "closed window" );
+                throw std::invalid_argument( "closed window" );  //lancia eccezione in caso di chiusura menu
             }
             catch( const std::invalid_argument& e ) {
                 std::cout << "exception";
-                exit(0);
+                return 1;
             }
             
         case 1:
             characters.push_back(((Elf*)CharacterFactory::makeCharacter(CharacterFactory::Elfo)));
-
             break;
+            
         case 2:
             characters.push_back(((Druid*)CharacterFactory::makeCharacter(CharacterFactory::Druid)));
-            
             break;
+            
         case 3:
             characters.push_back(((Paladin*)CharacterFactory::makeCharacter(CharacterFactory::Paladin)));
-            
             break;
             
         default:
             break;
     }
-   
-    
-    
 
-    characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
+    characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));  
     characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     
     characters.at(0)->init(1,1,1 , "");
@@ -157,7 +152,7 @@ int main()
                 walk=true;
                 c.restart();
             }
-            for (itr = characters.begin() ; itr != characters.end()-1 ; ){
+            for (itr = characters.begin() ; itr != characters.end()-1 ; ){  //modo rudimentale per fare incontro con mostri
                 itr++;
                 if(characters.at(0)->getPos() == (*itr)->getPos() ){
                     std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
@@ -170,9 +165,7 @@ int main()
             window.display();
             window.clear();
             
-        }
+        } //chiude game loop
     
-    
-
     return 0;
-}
+}//chiude main

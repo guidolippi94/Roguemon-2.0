@@ -14,7 +14,6 @@ void Elf::initP(std::string addr)
     
     playersprite.setTexture(playerTexture);
     playersprite.setPosition(32,32);
-    
 }
 
 void Elf::SetTextureState(){
@@ -27,8 +26,7 @@ void Elf::SetTextureState(){
             source.x=0;
     }
     
-    playersprite.setTextureRect(sf::IntRect(source.x * 32, source.y * 32, 32, 32));
-    
+    playersprite.setTextureRect(sf::IntRect(source.x * 32, source.y * 32, 32, 32));    
     updateFrame = false;
 }
 

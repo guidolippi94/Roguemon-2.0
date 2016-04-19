@@ -4,12 +4,11 @@
 #define CharacterFactory_hpp
 
 #include <stdio.h>
+
 #include "Character.hpp"
 #include "Elf.hpp"
 #include "Druid.hpp"
 #include "Paladin.hpp"
-
-
 #include "Monster.hpp"
 
 

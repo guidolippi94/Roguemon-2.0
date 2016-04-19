@@ -1,10 +1,5 @@
-//
-//  MenuLoop.cpp
-//  Roguemon  2.0
-//
-//  Created by Guido Lippi on 14/04/16.
-//  Copyright © 2016 guidolippi. All rights reserved.
-//
+
+
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
@@ -17,8 +12,6 @@
 #include <stdio.h>
 #include <stdexcept>
 
-
-int getPressedKey();
 
 int MenuLoop(){
     sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "prova");
@@ -63,8 +56,7 @@ int MenuLoop(){
     paladinSprite.setTexture(paladinTexture);
     paladinSprite.setTextureRect(sf::IntRect(0,32,32,32));
     paladinSprite.setPosition(32*11,100);
-    
-    
+        
     //animazione quadrato di selezione
     sf::RectangleShape rectangle;
     rectangle.setSize(sf::Vector2f(40, 40));
@@ -83,7 +75,6 @@ int MenuLoop(){
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
                 k=0;
                 window1.close();
-                
                 }
             else if (eevv.key.code==sf::Keyboard::Left){
                 rectangle.setPosition((32*3)-4,100);
