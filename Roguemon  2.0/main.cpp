@@ -13,43 +13,93 @@
 #include "MenuLoop.hpp"
 
 
+
 int main()
 {
+    
+    /*
+     const int level[] = //mappa  0->albero   1->erba   2->sabbia   3->roccia
+     {
+     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 0,
+     0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 0,
+     0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 0,
+     0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 0,
+     0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+     0, 0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0,
+     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+     };
+     
+     int mappa[8][16]=  //walkable    1->NO     0->SI
+     {
+     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+     {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+     {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
+     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+     };
+     
+     */
+
+    int level[40000];
+    int mappa[200][200]={0};
+    
+    //setta tutti i confini come no-walkable
+    for(int i=0; i<40000; i++){
+        if(i%199==0 || i%200==0)
+            level[i]=0;
+        else
+        level[i]=1;
+    }
+    //margini della mappa non walkable con alberi
+    for (int i=0; i<200; i++) {
+        level[i]=0;
+    }
+    
+    for (int i=40000; i>39800; i--) {
+        level[i]=0;
+    }
+    
+    
+    
+    
+    for(int i=0; i<200; i++)
+    {
+        mappa[0][i]=1;
+        mappa[199][i]=1;
+        mappa[i][0]=1;
+        mappa[i][199]=1;
+        
+    }
+    
+    int counterVector=0;
+    
+    for(int i=0; i<200; i++){
+        for(int j=0; j<200; j++){
+            if(level[counterVector]!=0)
+                mappa[i][j]=0;
+            else
+                mappa[i][j]=1;
+            counterVector++;
+        }
+    }
+
+    
+    
+    
+    
+    
     bool walk = true;
     int p=0;
-    
-    
-    // define the level with an array of tile indices  //la window è 32*16,32*8
-
-     const int level[] = //mappa
-    {
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    };
-    
-    int mappa[8][16]=  //walkable su 0
-    {
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-    };
     
     //std::cout << mappa[0][0]<<std::endl;
     
     // create the tilemap from the level definition
     TileMap map;
-    if (!map.load(sf::Vector2u(32, 32), level, 16, 8))
+    if (!map.load(sf::Vector2u(32, 32), level, 200, 200))
         return -1;
     
     sf::Clock c;
@@ -91,7 +141,7 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");    
+    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
 
     // run the main loop
     while (window.isOpen())
@@ -158,6 +208,7 @@ int main()
                 (*itr)->SetTextureState();
                 window.draw((*itr)->getSprite());
             }
+
             window.display();
             window.clear();
             

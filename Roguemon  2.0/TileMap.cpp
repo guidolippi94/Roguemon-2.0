@@ -7,7 +7,7 @@
 bool TileMap::load(sf::Vector2u tileSize, const int* tiles, unsigned int width, unsigned int height)
 {
     // load the tileset texture
-    if (!m_tileset.loadFromFile("prova.png"))
+    if (!m_tileset.loadFromFile("tileset.png"))
         return false;
     
     // resize the vertex array to fit the level size

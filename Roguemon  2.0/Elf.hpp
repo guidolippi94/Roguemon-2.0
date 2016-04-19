@@ -42,7 +42,7 @@ public:
     
     void initP(std::string addr);
     
-    void walk(int mappa[8][16], int index , int action);
+    void walk(int mappa[200][200], int index , int action);
     
     sf::Vector2i getPos(){
         return position;
