@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A56810D61CC6288B00A92F4C /* Druid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A56810D41CC6288B00A92F4C /* Druid.cpp */; };
+		A56810D91CC6291900A92F4C /* Paladin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A56810D71CC6291900A92F4C /* Paladin.cpp */; };
 		A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A59744841CB8508300517644 /* CharacterFactory.cpp */; };
 		A7C183CE1CBFA74C00594D08 /* MenuLoop.hpp in Sources */ = {isa = PBXBuildFile; fileRef = A7C183CD1CBFA74C00594D08 /* MenuLoop.hpp */; };
 		A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9331CB6AB850036ED36 /* main.cpp */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A56810D41CC6288B00A92F4C /* Druid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Druid.cpp; sourceTree = "<group>"; };
+		A56810D51CC6288B00A92F4C /* Druid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Druid.hpp; sourceTree = "<group>"; };
+		A56810D71CC6291900A92F4C /* Paladin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Paladin.cpp; sourceTree = "<group>"; };
+		A56810D81CC6291900A92F4C /* Paladin.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Paladin.hpp; sourceTree = "<group>"; };
 		A59744841CB8508300517644 /* CharacterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterFactory.cpp; sourceTree = "<group>"; };
 		A59744851CB8508300517644 /* CharacterFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterFactory.hpp; sourceTree = "<group>"; };
 		A7C183CD1CBFA74C00594D08 /* MenuLoop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MenuLoop.hpp; path = ../MenuLoop.hpp; sourceTree = "<group>"; };
@@ -71,6 +77,10 @@
 				A7FEA9431CB6ADEC0036ED36 /* Character.cpp */,
 				A7FEA9471CB6AE160036ED36 /* Elf.hpp */,
 				A7FEA9461CB6AE160036ED36 /* Elf.cpp */,
+				A56810D41CC6288B00A92F4C /* Druid.cpp */,
+				A56810D71CC6291900A92F4C /* Paladin.cpp */,
+				A56810D81CC6291900A92F4C /* Paladin.hpp */,
+				A56810D51CC6288B00A92F4C /* Druid.hpp */,
 				A7FEA94D1CB6AE660036ED36 /* Monster.hpp */,
 				A7FEA94C1CB6AE660036ED36 /* Monster.cpp */,
 				A7FEA94A1CB6AE3C0036ED36 /* TileMap.hpp */,
@@ -181,8 +191,10 @@
 			files = (
 				A7FEA94B1CB6AE3C0036ED36 /* TileMap.cpp in Sources */,
 				A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */,
+				A56810D61CC6288B00A92F4C /* Druid.cpp in Sources */,
 				A7FEA94E1CB6AE660036ED36 /* Monster.cpp in Sources */,
 				A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */,
+				A56810D91CC6291900A92F4C /* Paladin.cpp in Sources */,
 				A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */,
 				A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */,
 				A7C183CE1CBFA74C00594D08 /* MenuLoop.hpp in Sources */,

@@ -1,23 +1,23 @@
 
 
+#include "Paladin.hpp"
 #include <stdio.h>
 #include <unistd.h>
-#include "Elf.hpp"
 #include <SFML/Graphics.hpp>
 
 
 
-void Elf::initP(std::string addr)
+void Paladin::initP(std::string addr)
 {
-    if(!playerTexture.loadFromFile("Elf.png"))//carico l immag del persongg
-        std::cout<<"Elf not found"<<std::endl;
+    if(!playerTexture.loadFromFile("Paladin.png"))//carico l immag del persongg
+        std::cout<<"Paladin not found"<<std::endl;
     
     playersprite.setTexture(playerTexture);
     playersprite.setPosition(32,32);
     
 }
 
-void Elf::SetTextureState(){
+void Paladin::SetTextureState(){
     if (updateFrame) {
         
         frameCounter = 0;
@@ -33,7 +33,7 @@ void Elf::SetTextureState(){
 }
 
 
-void Elf::walk(int mappa[8][16] , int index , int action)
+void Paladin::walk(int mappa[8][16] , int index , int action)
 {
     bool walked = false;
     if ( action == 1){ //indicheranno dove si muove il player nel display

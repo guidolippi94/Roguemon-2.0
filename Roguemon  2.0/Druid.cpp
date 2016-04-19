@@ -1,23 +1,23 @@
 
 
+#include "Druid.hpp"
 #include <stdio.h>
 #include <unistd.h>
-#include "Elf.hpp"
 #include <SFML/Graphics.hpp>
 
 
 
-void Elf::initP(std::string addr)
+void Druid::initP(std::string addr)
 {
-    if(!playerTexture.loadFromFile("Elf.png"))//carico l immag del persongg
-        std::cout<<"Elf not found"<<std::endl;
+    if(!playerTexture.loadFromFile("Druid.png"))//carico l immag del persongg
+        std::cout<<"Druid not found"<<std::endl;
     
     playersprite.setTexture(playerTexture);
     playersprite.setPosition(32,32);
     
 }
 
-void Elf::SetTextureState(){
+void Druid::SetTextureState(){
     if (updateFrame) {
         
         frameCounter = 0;
@@ -33,7 +33,7 @@ void Elf::SetTextureState(){
 }
 
 
-void Elf::walk(int mappa[8][16] , int index , int action)
+void Druid::walk(int mappa[8][16] , int index , int action)
 {
     bool walked = false;
     if ( action == 1){ //indicheranno dove si muove il player nel display

@@ -1,7 +1,7 @@
 
 
-#ifndef Elf_hpp
-#define Elf_hpp
+#ifndef Druid_hpp
+#define Druid_hpp
 
 #include <stdio.h>
 #include <SFML/Audio.hpp>
@@ -16,10 +16,10 @@
 #include "TileMap.hpp"
 #include "Character.hpp"
 
-class Elf : public Character{
+class Druid : public Character{
 public:
     
-    Elf(){};
+    Druid(){};
     
     void init(int x, int y, int id , std::string addr){
         this->id =id;
@@ -32,7 +32,7 @@ public:
         initP(addr);
     }
     
-    ~Elf(){
+    ~Druid(){
         
     }
     
@@ -59,4 +59,4 @@ protected:
     
 };
 
-#endif /* Elf_hpp */
+#endif /* Druid_hpp */

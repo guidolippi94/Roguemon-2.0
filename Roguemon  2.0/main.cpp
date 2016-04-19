@@ -50,9 +50,7 @@ void GameLoop(){
 int main()
 {
     bool walk = true;
-   
-    
-    // create the window
+    int p=0;
     
     
     // define the level with an array of tile indices  //la window è 32*16,32*8
@@ -106,7 +104,9 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    MenuLoop();
+    p = MenuLoop();
+    std::cout<<p<<std::endl;
+    
     sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
 
     // run the main loop
@@ -120,8 +120,6 @@ int main()
             if(event.type == sf::Event::Closed)
                 window.close();
         }
-        
-        
             for (itr = characters.begin() ; itr != characters.end() ; itr++){
                 (*itr)->SetTextureState();
             }

@@ -18,9 +18,9 @@
 
 int getPressedKey();
 
-bool MenuLoop(){
+int MenuLoop(){
     sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "prova");
-    int k=0;
+    int k=0;  //a seconda dell'ultimo tasto premuto nel menu ritorna o 1 o 2 o 3
 
     sf::Text elfName, druidName, paladinName;
     elfName.setString("Legolas");
@@ -80,13 +80,18 @@ bool MenuLoop(){
                 window1.close();
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
                 window1.close();
-            else if (eevv.key.code==sf::Keyboard::Left)
+            else if (eevv.key.code==sf::Keyboard::Left){
                 rectangle.setPosition((32*3)-4,100);
-            
-            else if(eevv.key.code==sf::Keyboard::Up)
+                k=1;
+                }
+            else if(eevv.key.code==sf::Keyboard::Up){
                 rectangle.setPosition((32*7)-4,100);
-            else if(eevv.key.code==sf::Keyboard::Right)
+                k=2;
+                }
+            else if(eevv.key.code==sf::Keyboard::Right){
                 rectangle.setPosition((32*11)-4,100);
+                k=3;
+                }
             else if(eevv.key.code==sf::Keyboard::Return)
                 window1.close();
             
@@ -97,7 +102,9 @@ bool MenuLoop(){
             window1.draw(paladinSprite);
             window1.draw(rectangle);
             window1.display();
+            
          }
     }
+    return k;
 }
 
