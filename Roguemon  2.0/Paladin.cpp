@@ -37,7 +37,7 @@ void Paladin::walk(int mappa[8][16] , int index , int action)
 {
     bool walked = false;
     if ( action == 1){ //indicheranno dove si muove il player nel display
-        source.y = Up;
+        source.y = Down;
         SetTextureState();
         if(mappa[position.x-1][position.y] != 1){
             playersprite.setPosition((position.y)*32, (position.x)*32 - index);
@@ -54,7 +54,7 @@ void Paladin::walk(int mappa[8][16] , int index , int action)
         }
     }
     else if(action == 2){
-        source.y=Down;
+        source.y=Left;
         SetTextureState();
         if(mappa[position.x+1][position.y] != 1){
             playersprite.setPosition((position.y)*32, (position.x)*32 + index);
@@ -71,7 +71,7 @@ void Paladin::walk(int mappa[8][16] , int index , int action)
         }
     }
     else if(action == 3){
-        source.y=Right;
+        source.y=Up;
         SetTextureState();
         if(mappa[position.x][position.y+1] != 1){
             playersprite.setPosition((position.y)*32 +index, (position.x)*32);
@@ -88,7 +88,7 @@ void Paladin::walk(int mappa[8][16] , int index , int action)
         }
     }
     else if(action == 4){
-        source.y=Left;
+        source.y=Right;
         SetTextureState();
         if(mappa[position.x][position.y-1] != 1){
             playersprite.setPosition((position.y)*32 -index, (position.x)*32);

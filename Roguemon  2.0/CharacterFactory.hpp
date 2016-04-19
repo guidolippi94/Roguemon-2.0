@@ -1,10 +1,4 @@
-//
-//  CharacterFactory.hpp
-//  Roguemon  2.0
-//
-//  Created by Francesco Pegoraro on 08/04/16.
-//  Copyright © 2016 guidolippi. All rights reserved.
-//
+
 
 #ifndef CharacterFactory_hpp
 #define CharacterFactory_hpp

@@ -15,6 +15,8 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdio.h>
+#include <stdexcept>
+
 
 int getPressedKey();
 
@@ -72,14 +74,17 @@ int MenuLoop(){
     rectangle.setPosition(32*3-4, 100);
     sf::Event eevv;
     
-    while (window1.isOpen()) {
-        
-        while (window1.pollEvent(eevv))
-        {
-            if(eevv.type == sf::Event::Closed)
+    while (window1.isOpen()){
+        while (window1.pollEvent(eevv)){
+            if(eevv.type == sf::Event::Closed){
+                k=0;
                 window1.close();
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+            }
+            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+                k=0;
                 window1.close();
+                
+                }
             else if (eevv.key.code==sf::Keyboard::Left){
                 rectangle.setPosition((32*3)-4,100);
                 k=1;
@@ -92,8 +97,9 @@ int MenuLoop(){
                 rectangle.setPosition((32*11)-4,100);
                 k=3;
                 }
-            else if(eevv.key.code==sf::Keyboard::Return)
+            else if(eevv.key.code==sf::Keyboard::Return){
                 window1.close();
+            }
             
             window1.clear();
             window1.draw(text);
@@ -102,9 +108,38 @@ int MenuLoop(){
             window1.draw(paladinSprite);
             window1.draw(rectangle);
             window1.display();
-            
-         }
+            }
+
     }
     return k;
+}
+
+int getPressedKey(){
+    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+        return 1;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+        return 2;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+        return 3;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+        return 4;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+        return 5;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+        return 6;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
+        return 7;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
+        return 8;
+    }
+    
+    else return -1;
 }
 

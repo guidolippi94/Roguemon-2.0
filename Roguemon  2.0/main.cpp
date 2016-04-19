@@ -13,40 +13,6 @@
 #include "MenuLoop.hpp"
 
 
-int getPressedKey(){
-    if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-        return 1;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-        return 2;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-        return 3;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-        return 4;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
-        return 5;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-        return 6;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
-        return 7;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
-        return 8;
-    }
-    
-    else return -1;
-}
-
-
-void GameLoop(){
-    
-}
-
 int main()
 {
     bool walk = true;
@@ -93,8 +59,17 @@ int main()
     std::vector<Character*> characters;
     std::vector<Character*>::const_iterator itr;
     p = MenuLoop();
-
+    
     switch (p) {
+        case 0:
+            try{
+                throw std::invalid_argument( "closed window" );
+            }
+            catch( const std::invalid_argument& e ) {
+                std::cout << "exception";
+                exit(0);
+            }
+            
         case 1:
             characters.push_back(((Elf*)CharacterFactory::makeCharacter(CharacterFactory::Elfo)));
 
@@ -111,6 +86,10 @@ int main()
         default:
             break;
     }
+   
+    
+    
+
     characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     
@@ -121,9 +100,7 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    std::cout<<p<<std::endl;
-    
-    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
+    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");    
 
     // run the main loop
     while (window.isOpen())
@@ -196,5 +173,6 @@ int main()
         }
     
     
+
     return 0;
 }

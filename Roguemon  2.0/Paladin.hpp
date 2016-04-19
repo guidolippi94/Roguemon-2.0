@@ -26,8 +26,8 @@ public:
         this->id =id;
         position.x = x;
         position.y = y;
-        source.x = 1;
-        source.y = Down;
+        source.x = 0; //cambiare questi due per pos di partenza
+        source.y = Left;
         updateFrame = false;
         frameCounter=0, switchFrame=200, frameSpeed = 500;
         initP(addr);

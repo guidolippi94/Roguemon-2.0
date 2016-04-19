@@ -26,7 +26,7 @@ public:
         position.x = x;
         position.y = y;
         source.x = 1;
-        source.y = Down;
+        source.y = Right;  //cambiare per posizione di partenza
         updateFrame = false;
         frameCounter=0, switchFrame=200, frameSpeed = 500;
         initP(addr);
