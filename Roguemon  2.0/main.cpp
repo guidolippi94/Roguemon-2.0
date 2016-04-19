@@ -3,12 +3,13 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
-#include "TileMap.hpp"
-#include "Elf.hpp"
-#include "Monster.hpp"
-#include "CharacterFactory.hpp"
 #include <unistd.h>
 #include <iostream>
+#include <stdexcept>
+#include "CharacterFactory.hpp"
+#include "Monster.hpp"
+#include "Elf.hpp"
+#include "TileMap.hpp"
 #include "MenuLoop.hpp"
 
 
@@ -55,19 +56,14 @@ int main()
 
     std::vector<Character*> characters;
     std::vector<Character*>::const_iterator itr;
-    
-    p = MenuLoop();
-    
+    try{
+        p = MenuLoop();
+    }
+    catch( const std::invalid_argument& e ) {  //gestione eccezione chiusura menu
+        std::cout << "exception";
+        return 1;
+    }
     switch (p) {  //a seconda di cosa ritorna menuloop:...
-            
-        case 0:
-            try{
-                throw std::invalid_argument( "closed window" );  //lancia eccezione in caso di chiusura menu
-            }
-            catch( const std::invalid_argument& e ) {
-                std::cout << "exception";
-                return 1;
-            }
             
         case 1:
             characters.push_back(((Elf*)CharacterFactory::makeCharacter(CharacterFactory::Elfo)));
@@ -89,7 +85,7 @@ int main()
     characters.push_back((Monster*)CharacterFactory::makeCharacter(CharacterFactory::Poke));
     
     characters.at(0)->init(1,1,1 , "");
-    characters.at(1)->init(2,2,2 , "mewtwo.png");
+    characters.at(1)->init(3,3,2 , "mewtwo.png");
     characters.at(2)->init(3,3,3 , "greeninja.png");
     
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){

@@ -22,7 +22,7 @@ void Monster::initP(std::string addr)
         std::cout<<"image2 not found"<<std::endl;
     
     playersprite.setTexture(playerTexture);
-    playersprite.setPosition(64,64);
+    playersprite.setPosition(96,96);
     
 }
 
