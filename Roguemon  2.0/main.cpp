@@ -18,7 +18,7 @@ int main()
 {
     
     //movimento telecamera
-    sf::Vector2i position(0,0);
+    sf::Vector2i positionview(0,0);
     sf::Vector2i screenDimensions(32*30, 32*15);
     sf::View view;
     view.reset(sf::FloatRect(0, 0, screenDimensions.x, screenDimensions.y));
@@ -26,7 +26,7 @@ int main()
     //---->fino a qui
 
 
-    /*
+    
      const int level[] = //mappa  0->albero   1->erba   2->sabbia   3->roccia
      {
      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -51,8 +51,8 @@ int main()
      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
      };
      
-     */
-
+    
+    /*
     int level[40000];
     int mappa[200][200]={0};
     
@@ -96,7 +96,7 @@ int main()
         }
     }
 
-    
+    */
     
     
     
@@ -108,7 +108,7 @@ int main()
     
     // create the tilemap from the level definition
     TileMap map;
-    if (!map.load(sf::Vector2u(32, 32), level, 200, 200))
+    if (!map.load(sf::Vector2u(32, 32), level, 16, 8))
         return -1;
     
     sf::Clock c;
@@ -172,11 +172,11 @@ int main()
             window.draw(map);
         
         //position per il movimento telecamera
-        position.x=characters.at(0)->getSprite().getPosition().x+32 - (screenDimensions.x/2); //metto in position la posizione dell omino - mezzo display
-        position.y=characters.at(0)->getSprite().getPosition().y+32 - (screenDimensions.y/2);
+        positionview.x=characters.at(0)->getSprite().getPosition().x+32 - (screenDimensions.x/2); //metto in position la posizione dell omino - mezzo display
+        positionview.y=characters.at(0)->getSprite().getPosition().y+32 - (screenDimensions.y/2);
 
         
-        view.reset(sf::FloatRect(position.x, position.y, screenDimensions.x, screenDimensions.y));
+        view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
         //---->fino a qui
             
             if (walk) {
