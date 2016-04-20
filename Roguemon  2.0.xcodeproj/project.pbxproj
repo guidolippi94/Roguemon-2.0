@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		A527A3D41CC7D16C00D849A3 /* MenuLoop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MenuLoop.hpp; sourceTree = "<group>"; };
+		A527A3D61CC7E5A700D849A3 /* Constants.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
 		A56810D41CC6288B00A92F4C /* Druid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Druid.cpp; sourceTree = "<group>"; };
 		A56810D51CC6288B00A92F4C /* Druid.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Druid.hpp; sourceTree = "<group>"; };
 		A56810D71CC6291900A92F4C /* Paladin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Paladin.cpp; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				A7FEA9331CB6AB850036ED36 /* main.cpp */,
+				A527A3D61CC7E5A700D849A3 /* Constants.hpp */,
 				A59744851CB8508300517644 /* CharacterFactory.hpp */,
 				A527A3D41CC7D16C00D849A3 /* MenuLoop.hpp */,
 				A59744841CB8508300517644 /* CharacterFactory.cpp */,

@@ -3,14 +3,15 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
-#include "TileMap.hpp"
-#include "Elf.hpp"
-#include "Monster.hpp"
-#include "CharacterFactory.hpp"
 #include <unistd.h>
 #include <iostream>
 #include <stdio.h>
 #include <stdexcept>
+
+#include "TileMap.hpp"
+#include "Elf.hpp"
+#include "Monster.hpp"
+#include "CharacterFactory.hpp"
 
 
 int MenuLoop(){

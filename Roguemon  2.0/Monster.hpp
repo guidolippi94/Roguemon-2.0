@@ -1,10 +1,4 @@
-//
-//  Monster.hpp
-//  provamappa
-//
-//  Created by Francesco Pegoraro on 06/04/16.
-//  Copyright © 2016 Francesco Pegoraro. All rights reserved.
-//
+
 
 #ifndef Monster_hpp
 #define Monster_hpp
@@ -20,8 +14,11 @@
 #include <cstdlib>
 #include <fstream>
 #include <cctype>
+
 #include "TileMap.hpp"
 #include "Character.hpp"
+#include "Constants.hpp"
+
 
 class Monster : public Character{
 public:
@@ -49,7 +46,7 @@ public:
     
     void initP(std::string addr);
     
-    void walk(int mappa[8][16], int index , int action);
+    void walk(int mappa[dimMapx][dimMapy], int index , int action);
     
     sf::Vector2i getPos(){
         return position;

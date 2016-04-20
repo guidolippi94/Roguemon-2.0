@@ -1,20 +1,10 @@
-//
-//  Monster.cpp
-//  provamappa
-//
-//  Created by Francesco Pegoraro on 06/04/16.
-//  Copyright © 2016 Francesco Pegoraro. All rights reserved.
-//
-
-#include "Monster.hpp"
-
-
 
 #include <stdio.h>
 #include <unistd.h>
-#include "Elf.hpp"
 #include <SFML/Graphics.hpp>
 
+#include "Monster.hpp"
+#include "Elf.hpp"
 
 void Monster::initP(std::string addr)
 {
@@ -42,7 +32,7 @@ void Monster::SetTextureState(){
 }
 
 
-void Monster::walk(int mappa[8][16], int index , int action)
+void Monster::walk(int mappa[dimMapx][dimMapy], int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Up;

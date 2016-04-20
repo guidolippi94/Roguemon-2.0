@@ -1,9 +1,10 @@
 
 
-#include "Druid.hpp"
 #include <stdio.h>
 #include <unistd.h>
 #include <SFML/Graphics.hpp>
+
+#include "Druid.hpp"
 
 
 
@@ -33,7 +34,7 @@ void Druid::SetTextureState(){
 }
 
 
-void Druid::walk(int mappa[8][16] , int index , int action)
+void Druid::walk(int mappa[dimMapx][dimMapy] , int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Down;

@@ -4,7 +4,6 @@
 #define TileMap_hpp
 
 #include <stdio.h>
-
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 

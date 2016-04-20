@@ -6,11 +6,13 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdexcept>
+
 #include "CharacterFactory.hpp"
 #include "Monster.hpp"
 #include "Elf.hpp"
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
+#include "Constants.hpp"
 
 
 
@@ -25,8 +27,6 @@ int main()
     view.setViewport(sf::FloatRect(0, 0 , 1, 1));
     //---->fino a qui
 
-
-    
      const int level[] = //mappa  0->albero   1->erba   2->sabbia   3->roccia
      {
      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -38,8 +38,8 @@ int main()
      0, 0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0,
      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
      };
-     
-     int mappa[8][16]=  //walkable    1->NO     0->SI
+     //walkable    1->NO     0->SI
+    int mappa[dimMapx][dimMapy]=
      {
      {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
      {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -108,7 +108,7 @@ int main()
     
     // create the tilemap from the level definition
     TileMap map;
-    if (!map.load(sf::Vector2u(32, 32), level, 16, 8))
+    if (!map.load(sf::Vector2u(32, 32), level, dimMapy, dimMapx))
         return -1;
     
     sf::Clock c;
@@ -174,7 +174,13 @@ int main()
         //position per il movimento telecamera
         positionview.x=characters.at(0)->getSprite().getPosition().x+32 - (screenDimensions.x/2); //metto in position la posizione dell omino - mezzo display
         positionview.y=characters.at(0)->getSprite().getPosition().y+32 - (screenDimensions.y/2);
-
+        
+        if (positionview.x<0) {
+            positionview.x=0;
+        }
+        if (positionview.y<0) {
+            positionview.y=0;
+        }
         
         view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
         //---->fino a qui

@@ -2,9 +2,9 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include "Elf.hpp"
 #include <SFML/Graphics.hpp>
 
+#include "Elf.hpp"
 
 
 void Elf::initP(std::string addr)
@@ -31,7 +31,7 @@ void Elf::SetTextureState(){
 }
 
 
-void Elf::walk(int mappa[8][16] , int index , int action)
+void Elf::walk(int mappa[dimMapx][dimMapy] , int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Down;//tutte scambiate per non cambiare la texture
