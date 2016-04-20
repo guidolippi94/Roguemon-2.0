@@ -35,7 +35,6 @@ void Paladin::SetTextureState(){
 
 void Paladin::walk(int mappa[200][200] , int index , int action)
 {
-    bool walked = false;
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Down;
         SetTextureState();

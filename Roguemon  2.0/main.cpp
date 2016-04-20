@@ -197,7 +197,7 @@ int main()
             }
             //std::cout << c.getElapsedTime().asMilliseconds() << std::endl;
             if (c.getElapsedTime().asMilliseconds() > 150) {
-                srand (c.getElapsedTime().asMicroseconds());
+                srand(c.getElapsedTime().asMicroseconds());
                 int action = rand() % 4 + 1;
                 for(int index = 2 ; index < 33 ; index++){
                     for (itr = characters.begin() ; itr != characters.end()-1 ; ){
