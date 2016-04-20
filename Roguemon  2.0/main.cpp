@@ -17,6 +17,15 @@
 int main()
 {
     
+    //movimento telecamera
+    sf::Vector2i position(0,0);
+    sf::Vector2i screenDimensions(32*30, 32*15);
+    sf::View view;
+    view.reset(sf::FloatRect(0, 0, screenDimensions.x, screenDimensions.y));
+    view.setViewport(sf::FloatRect(0, 0 , 1, 1));
+    //---->fino a qui
+
+
     /*
      const int level[] = //mappa  0->albero   1->erba   2->sabbia   3->roccia
      {
@@ -141,7 +150,7 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    sf::RenderWindow window(sf::VideoMode(32*16, 32*8), "prova");
+    sf::RenderWindow window(sf::VideoMode(32*30, 32*15), "prova");
 
     // run the main loop
     while (window.isOpen())
@@ -161,6 +170,14 @@ int main()
             // draw the map
             window.clear();
             window.draw(map);
+        
+        //position per il movimento telecamera
+        position.x=characters.at(0)->getSprite().getPosition().x+32 - (screenDimensions.x/2); //metto in position la posizione dell omino - mezzo display
+        position.y=characters.at(0)->getSprite().getPosition().y+32 - (screenDimensions.y/2);
+
+        
+        view.reset(sf::FloatRect(position.x, position.y, screenDimensions.x, screenDimensions.y));
+        //---->fino a qui
             
             if (walk) {
                 int k = getPressedKey();
@@ -208,6 +225,8 @@ int main()
                 (*itr)->SetTextureState();
                 window.draw((*itr)->getSprite());
             }
+       
+        window.setView(view); //--->setto la view della telecamera
 
             window.display();
             window.clear();
