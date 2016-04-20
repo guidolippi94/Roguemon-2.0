@@ -6,7 +6,6 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdexcept>
-
 #include "CharacterFactory.hpp"
 #include "Monster.hpp"
 #include "Elf.hpp"
@@ -18,13 +17,14 @@
 
 int main()
 {
-    
     //movimento telecamera
     sf::Vector2i positionview(0,0);
-    sf::Vector2i screenDimensions(32*30, 32*15);
+    //sf::Vector2i screenDimensions(32*30, 32*15);
+    sf::Vector2i screenDimensions(screenY, screenX);
     sf::View view;
-    view.reset(sf::FloatRect(0, 0, screenDimensions.x, screenDimensions.y));
-    view.setViewport(sf::FloatRect(0, 0 , 1, 1));
+    //view.reset(sf::FloatRect(0, 0, screenDimensions.x, screenDimensions.y));
+    //view.reset(sf::FloatRect(0, 0, viewX, viewY));
+    //view.setViewport(sf::FloatRect(0, 0 , 1, 1));
     //---->fino a qui
 
      const int level[] = //mappa  0->albero   1->erba   2->sabbia   3->roccia
@@ -150,8 +150,8 @@ int main()
     /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
         (*itr)->init();
     }*/
-    sf::RenderWindow window(sf::VideoMode(32*30, 32*15), "prova");
-
+    //sf::RenderWindow window(sf::VideoMode(32*30, 32*15), "prova");
+    sf::RenderWindow window(sf::VideoMode(screenY, screenX), "prova");
     // run the main loop
     while (window.isOpen())
     {
@@ -171,18 +171,7 @@ int main()
             window.clear();
             window.draw(map);
         
-        //position per il movimento telecamera
-        positionview.x=characters.at(0)->getSprite().getPosition().x+32 - (screenDimensions.x/2); //metto in position la posizione dell omino - mezzo display
-        positionview.y=characters.at(0)->getSprite().getPosition().y+32 - (screenDimensions.y/2);
-        
-        if (positionview.x<0) {
-            positionview.x=0;
-        }
-        if (positionview.y<0) {
-            positionview.y=0;
-        }
-        
-        view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
+        //view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
         //---->fino a qui
             
             if (walk) {
@@ -196,14 +185,55 @@ int main()
                             window.draw((*itr)->getSprite());
                         }
                         window.display();
+                        //position per il movimento telecamera
+                        positionview.x=characters.at(0)->getSprite().getPosition().x+32 - (screenDimensions.x/2); //metto in position la posizione dell omino - mezzo display
+                        positionview.y=characters.at(0)->getSprite().getPosition().y+32 - (screenDimensions.y/2);
+                        
+                        if (positionview.x<0) {
+                            positionview.x=0;
+                        }
+                        if (positionview.y<0) {
+                            positionview.y=0;
+                        }
+                        /*
+                        int movx = 0, movy = 0;
+                        //view.setCenter(characters.at(0)->getSprite().getPosition().x, characters.at(0)->getSprite().getPosition().y);
+                        switch (k) {
+                            case 1:
+                                movx = 0;
+                                movy = -1;
+                                break;
+                            case 2:
+                                movx = 0;
+                                movy = 1;
+                                break;
+                            case 3:
+                                movx = 1;
+                                movy = 0;
+                                break;
+                            case 4:
+                                movx = -1;
+                                movy = 0;
+                                break;
+                            default:
+                                movx = 0;
+                                movy = 0;
+                                break;
+                        }
+                         */
+                        //view.move(movx, movy);
+                        //view.setSize(screenDimensions.x, screenDimensions.y);
+                        view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
                         usleep(6000);
                     }
                 }
                 walk = false;
             }
+        
+            
             //std::cout << c.getElapsedTime().asMilliseconds() << std::endl;
             if (c.getElapsedTime().asMilliseconds() > 150) {
-                srand(c.getElapsedTime().asMicroseconds());
+                srand((unsigned int)c.getElapsedTime().asMicroseconds());
                 int action = rand() % 4 + 1;
                 for(int index = 2 ; index < 33 ; index++){
                     for (itr = characters.begin() ; itr != characters.end()-1 ; ){
