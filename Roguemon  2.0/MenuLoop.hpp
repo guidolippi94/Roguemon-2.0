@@ -70,11 +70,10 @@ int MenuLoop(){
     while (window1.isOpen()){
         while (window1.pollEvent(eevv)){
             if(eevv.type == sf::Event::Closed){
-                throw std::invalid_argument( "closed window" );  //lancia eccezione in caso di chiusura menu
                 window1.close();
+                k=-1;
             }
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
-                k=0;
                 window1.close();
                 }
             else if (eevv.key.code==sf::Keyboard::Left){

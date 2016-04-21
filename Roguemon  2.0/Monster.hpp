@@ -23,28 +23,13 @@
 class Monster : public Character{
 public:
     
-    Monster(){};
+    Monster(int x, int y, int id, std::string addr);
     
-    void init(int x, int y, int id , std::string addr){
-        this->id =id;
-        position.x = x;
-        position.y = y;
-        source.x = 1;
-        source.y = Down;
-        updateFrame = false;
-        frameCounter=0, switchFrame=200, frameSpeed = 500;
-        initP(addr);
-    }
-    
-    ~Monster(){
-        
-    }
+    ~Monster(){}
     
     int getId(){
         return id;
     }
-    
-    void initP(std::string addr);
     
     void walk(int mappa[dimMapx][dimMapy], int index , int action);
     

@@ -6,15 +6,15 @@
 
 #include "Paladin.hpp"
 
-
-void Paladin::initP(std::string addr)
-{
+Paladin::Paladin(int x, int y, int id, std::string addr):Character(x, y, id){
     if(!playerTexture.loadFromFile("Paladin.png"))//carico l immag del persongg
         std::cout<<"Paladin not found"<<std::endl;
-    
     playersprite.setTexture(playerTexture);
     playersprite.setPosition(32,32);
-    
+    source.x = 1;
+    source.y = Right;  //cambiare per posizione di partenza
+    updateFrame = false;
+    frameCounter=0, switchFrame=200, frameSpeed = 500;
 }
 
 void Paladin::SetTextureState(){

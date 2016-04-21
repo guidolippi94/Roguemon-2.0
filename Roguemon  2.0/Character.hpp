@@ -21,15 +21,13 @@ class Character{
     
 public:
     
-    Character();
+    Character(int x, int y, int id);
     
-    virtual void init(int x, int y, int id , std::string addr) = 0;
     
     virtual ~Character() = 0;
     
     virtual int getId() = 0;
     
-    virtual void initP(std::string addr) = 0;
     
     virtual void walk(int mappa[dimMapx][dimMapy], int index , int action) = 0;
     

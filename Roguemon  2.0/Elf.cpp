@@ -6,14 +6,15 @@
 
 #include "Elf.hpp"
 
-
-void Elf::initP(std::string addr)
-{
+Elf::Elf(int x, int y, int id, std::string addr):Character(x, y, id){
     if(!playerTexture.loadFromFile("Elf.png"))//carico l immag del persongg
         std::cout<<"Elf not found"<<std::endl;
-    
     playersprite.setTexture(playerTexture);
     playersprite.setPosition(32,32);
+    source.x = 1;
+    source.y = Right;  //cambiare per posizione di partenza
+    updateFrame = false;
+    frameCounter=0, switchFrame=200, frameSpeed = 500;
 }
 
 void Elf::SetTextureState(){

@@ -2,23 +2,23 @@
 
 #include "CharacterFactory.hpp"
 
-Character* CharacterFactory::makeCharacter(CharacterFactory::CharacterType type) {
+Character* CharacterFactory::makeCharacter(CharacterFactory::CharacterType type, int x, int y, int id, std::string addr) {
     Character *ch;
     switch (type) {
         case CharacterFactory::Elfo:
-            ch = new Elf::Elf();
+            ch = new Elf(x, y , id, addr);
             break;
-        case CharacterFactory::Druid:
-            ch = new Druid::Druid();
+        case CharacterFactory::Druido:
+            ch = new Druid(x, y , id, addr);
             break;
-        case CharacterFactory::Paladin:
-            ch = new Paladin::Paladin();
+        case CharacterFactory::Paladino:
+            ch = new Paladin(x, y , id, addr);
             break;
         case CharacterFactory::Poke:
-            ch = new Monster::Monster();
+            ch = new Monster::Monster(x, y , id, addr);
             break;
         default:
-            ch = new Monster::Monster();
+            ch = new Monster::Monster(x, y , id, addr);
             break;
     }
     return ch;

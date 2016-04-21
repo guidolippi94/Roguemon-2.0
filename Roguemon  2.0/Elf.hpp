@@ -22,28 +22,13 @@
 class Elf : public Character{
 public:
     
-    Elf(){};
+    Elf(int x, int y, int id, std::string addr);
     
-    void init(int x, int y, int id , std::string addr){
-        this->id =id;
-        position.x = x;
-        position.y = y;
-        source.x = 1;
-        source.y = Right;  //cambiare per posizione di partenza
-        updateFrame = false;
-        frameCounter=0, switchFrame=200, frameSpeed = 500;
-        initP(addr);
-    }
-    
-    ~Elf(){
-        
-    }
+    ~Elf(){}
     
     int getId(){
         return id;
     }
-    
-    void initP(std::string addr);
     
     void walk(int mappa[dimMapx][dimMapy], int index , int action);
     

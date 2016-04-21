@@ -23,19 +23,8 @@
 class Paladin : public Character{
 public:
     
-    Paladin(){};
-    
-    void init(int x, int y, int id , std::string addr){
-        this->id =id;
-        position.x = x;
-        position.y = y;
-        source.x = 0; //cambiare questi due per pos di partenza
-        source.y = Left;
-        updateFrame = false;
-        frameCounter=0, switchFrame=200, frameSpeed = 500;
-        initP(addr);
-    }
-    
+    Paladin(int x, int y, int id, std::string addr);
+        
     ~Paladin(){
         
     }
@@ -43,9 +32,7 @@ public:
     int getId(){
         return id;
     }
-    
-    void initP(std::string addr);
-    
+        
     void walk(int mappa[dimMapx][dimMapy], int index , int action);
     
     sf::Vector2i getPos(){

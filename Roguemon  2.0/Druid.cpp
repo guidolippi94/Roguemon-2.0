@@ -7,16 +7,17 @@
 #include "Druid.hpp"
 
 
-
-void Druid::initP(std::string addr)
-{
+Druid::Druid(int x, int y, int id, std::string addr):Character(x, y, id){
     if(!playerTexture.loadFromFile("Druid.png"))//carico l immag del persongg
         std::cout<<"Druid not found"<<std::endl;
-    
     playersprite.setTexture(playerTexture);
     playersprite.setPosition(32,32);
-    
+    source.x = 1;
+    source.y = Right;  //cambiare per posizione di partenza
+    updateFrame = false;
+    frameCounter=0, switchFrame=200, frameSpeed = 500;
 }
+
 
 void Druid::SetTextureState(){
     if (updateFrame) {
