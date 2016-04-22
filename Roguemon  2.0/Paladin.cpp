@@ -15,6 +15,9 @@ Paladin::Paladin(int x, int y, int id, std::string addr):Character(x, y, id){
     source.y = Right;  //cambiare per posizione di partenza
     updateFrame = false;
     frameCounter=0, switchFrame=200, frameSpeed = 500;
+    
+    atk=80;
+    life=60;
 }
 
 void Paladin::SetTextureState(){

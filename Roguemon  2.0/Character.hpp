@@ -40,12 +40,17 @@ public:
 protected:
     
     int id;
+    int atk;
+    int life;
+    
     sf::Vector2i position;
     enum Direction {Down, Left, Right, Up};
     sf::Vector2i source;
+    
     bool updateFrame;
     float frameCounter, switchFrame, frameSpeed;
     sf::Clock clk;
+    
     sf::Texture playerTexture;
     sf::Sprite playersprite;
     

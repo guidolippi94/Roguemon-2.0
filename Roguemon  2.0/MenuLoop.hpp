@@ -34,7 +34,49 @@ int MenuLoop(){
     text.setString("Menu");
     text.setCharacterSize(36); // in pixels, not points!
     text.setColor(sf::Color::Red);
-    text.setPosition(32*7, 0);
+    text.setPosition(32*7-24, 0);
+    //Label Characters
+    sf::Text Elflabel, Druidlabel, Paladinlabel;
+    Elflabel.setFont(font);
+    Druidlabel.setFont(font);
+    Paladinlabel.setFont(font);
+    Elflabel.setString("Elf");
+    Druidlabel.setString("Druid");
+    Paladinlabel.setString("Paladin");
+    Elflabel.setCharacterSize(20); // in pixels, not points!
+    Druidlabel.setCharacterSize(20); // in pixels, not points!
+    Paladinlabel.setCharacterSize(20); // in pixels, not points!
+    Elflabel.setColor(sf::Color::Blue);
+    Druidlabel.setColor(sf::Color::Green);
+    Paladinlabel.setColor(sf::Color::White);
+    Elflabel.setPosition(34*3, 60);
+    Druidlabel.setPosition(31*7-2, 60);
+    Paladinlabel.setPosition(31*11-3, 60);
+    //Character's stats
+    sf::Text Elfstats;
+    Elfstats.setFont(font);
+    Elfstats.setString("attack: 50 \n life: 80");
+    Elfstats.setCharacterSize(15); // in pixels, not points!
+    Elfstats.setColor(sf::Color::White);
+    Elfstats.setPosition(30*3, 145);
+    sf::Text Druidstats;
+    Druidstats.setFont(font);
+    Druidstats.setString("attack: 60 \n life: 70");
+    Druidstats.setCharacterSize(15); // in pixels, not points!
+    Druidstats.setColor(sf::Color::White);
+    Druidstats.setPosition(31*7-5, 145);
+    sf::Text Paladinstats;
+    Paladinstats.setFont(font);
+    Paladinstats.setString("attack: 70 \n life: 60");
+    Paladinstats.setCharacterSize(15); // in pixels, not points!
+    Paladinstats.setColor(sf::Color::White);
+    Paladinstats.setPosition(32*11-10, 145);
+
+
+
+
+    
+    
     
     //Character frontal sprites
     sf::Texture elfTexture, druidTexture, paladinTexture;
@@ -61,7 +103,7 @@ int MenuLoop(){
     //animazione quadrato di selezione
     sf::RectangleShape rectangle;
     rectangle.setSize(sf::Vector2f(40, 40));
-    rectangle.setOutlineColor(sf::Color::Green);
+    rectangle.setOutlineColor(sf::Color::Yellow);
     rectangle.setOutlineThickness(5);
     rectangle.setFillColor(sf::Color::Color(0,0,0,0));
     rectangle.setPosition(32*3-4, 100);
@@ -97,6 +139,13 @@ int MenuLoop(){
             window1.draw(elfSprite);
             window1.draw(druidSprite);
             window1.draw(paladinSprite);
+            window1.draw(Elflabel);
+            window1.draw(Druidlabel);
+            window1.draw(Paladinlabel);
+            window1.draw(Elfstats);
+            window1.draw(Druidstats);
+            window1.draw(Paladinstats);
+
             window1.draw(rectangle);
             window1.display();
             }

@@ -117,9 +117,6 @@ int main()
     if(p==-1){
         return 1;
     }
-    
-        
-    
     switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:
