@@ -187,34 +187,6 @@ int main()
                     if (positionview.y<0) {
                         positionview.y=0;
                     }
-                    /*
-                     int movx = 0, movy = 0;
-                     //view.setCenter(characters.at(0)->getSprite().getPosition().x, characters.at(0)->getSprite().getPosition().y);
-                     switch (k) {
-                     case 1:
-                     movx = 0;
-                     movy = -1;
-                     break;
-                     case 2:
-                     movx = 0;
-                     movy = 1;
-                     break;
-                     case 3:
-                     movx = 1;
-                     movy = 0;
-                     break;
-                     case 4:
-                     movx = -1;
-                     movy = 0;
-                     break;
-                     default:
-                     movx = 0;
-                     movy = 0;
-                     break;
-                     }
-                     */
-                    //view.move(movx, movy);
-                    //view.setSize(screenDimensions.x, screenDimensions.y);
                     view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
                     usleep(6000);
                 }
