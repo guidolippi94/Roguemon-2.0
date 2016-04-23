@@ -6,12 +6,16 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdexcept>
+
 #include "CharacterFactory.hpp"
 #include "Monster.hpp"
 #include "Elf.hpp"
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
 #include "Constants.hpp"
+
+//per observer
+#include "Map.hpp"
 
 
 
@@ -117,7 +121,7 @@ int main()
     if(p==-1){
         return 1;
     }
-    switch (p) {  //a seconda di cosa ritorna menuloop:...
+    /*switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:
             characters.push_back((CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 1,"")));
@@ -133,7 +137,15 @@ int main()
             
         default:
             break;
-    }
+    }*/
+    Elf* ch = new Elf(1, 1 , 1, "");
+    characters.push_back(ch);
+
+    
+    //per observer
+    Map* Obs1 = new Map(ch);
+
+    
     
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 2,"mewtwo.png"));
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 3,"greeninja.png"));
@@ -154,7 +166,8 @@ int main()
         {
             if(event.type == sf::Event::Closed)
                 window.close();
-        }
+        }//chiuso loop eventi
+        
         for (itr = characters.begin() ; itr != characters.end() ; itr++){
             (*itr)->SetTextureState();
         }
@@ -192,6 +205,7 @@ int main()
                 }
             }
             walk = false;
+
         }
         
         

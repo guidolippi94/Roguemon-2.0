@@ -105,5 +105,25 @@ void Elf::walk(int mappa[dimMapx][dimMapy] , int index , int action)
             }
         }
     }
+    notify();
+}
+
+
+
+//per observer
+void Elf::subscribe(Observer* o){
+    observers.push_back(o);
+}
+
+void Elf::unsubscribe(Observer* o){
+    observers.remove(o);
+}
+
+void Elf::notify(){
+    std::list <Observer *>::iterator itr;
+    for (itr = observers.begin(); itr != observers.end(); itr++){
+        (*itr) -> update();
+    }
+    
 }
 

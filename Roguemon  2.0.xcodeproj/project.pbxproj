@@ -11,6 +11,7 @@
 		A56810D91CC6291900A92F4C /* Paladin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A56810D71CC6291900A92F4C /* Paladin.cpp */; };
 		A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A59744841CB8508300517644 /* CharacterFactory.cpp */; };
 		A5E980ED1CCB812300AABF3A /* Music.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5E980EB1CCB812300AABF3A /* Music.cpp */; };
+		A5E980F41CCBB49F00AABF3A /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5E980F21CCBB49F00AABF3A /* Map.cpp */; };
 		A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9331CB6AB850036ED36 /* main.cpp */; };
 		A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9431CB6ADEC0036ED36 /* Character.cpp */; };
 		A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A7FEA9461CB6AE160036ED36 /* Elf.cpp */; };
@@ -29,6 +30,10 @@
 		A59744851CB8508300517644 /* CharacterFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterFactory.hpp; sourceTree = "<group>"; };
 		A5E980EB1CCB812300AABF3A /* Music.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Music.cpp; sourceTree = "<group>"; };
 		A5E980EC1CCB812300AABF3A /* Music.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Music.hpp; sourceTree = "<group>"; };
+		A5E980EF1CCBB30000AABF3A /* Observer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Observer.hpp; sourceTree = "<group>"; };
+		A5E980F11CCBB35C00AABF3A /* Subject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Subject.hpp; sourceTree = "<group>"; };
+		A5E980F21CCBB49F00AABF3A /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
+		A5E980F31CCBB49F00AABF3A /* Map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
 		A7FEA92B1CB6AB850036ED36 /* Roguemon  2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roguemon  2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FEA92F1CB6AB850036ED36 /* Roguemon  2.0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Roguemon  2.0-Info.plist"; sourceTree = "<group>"; };
 		A7FEA9331CB6AB850036ED36 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -74,10 +79,14 @@
 			children = (
 				A7FEA9331CB6AB850036ED36 /* main.cpp */,
 				A527A3D61CC7E5A700D849A3 /* Constants.hpp */,
+				A5E980EF1CCBB30000AABF3A /* Observer.hpp */,
 				A59744851CB8508300517644 /* CharacterFactory.hpp */,
-				A5E980EB1CCB812300AABF3A /* Music.cpp */,
-				A5E980EC1CCB812300AABF3A /* Music.hpp */,
 				A59744841CB8508300517644 /* CharacterFactory.cpp */,
+				A5E980F31CCBB49F00AABF3A /* Map.hpp */,
+				A5E980F21CCBB49F00AABF3A /* Map.cpp */,
+				A5E980F11CCBB35C00AABF3A /* Subject.hpp */,
+				A5E980EC1CCB812300AABF3A /* Music.hpp */,
+				A5E980EB1CCB812300AABF3A /* Music.cpp */,
 				A527A3D41CC7D16C00D849A3 /* MenuLoop.hpp */,
 				A7FEA9441CB6ADEC0036ED36 /* Character.hpp */,
 				A7FEA9431CB6ADEC0036ED36 /* Character.cpp */,
@@ -201,6 +210,7 @@
 				A56810D61CC6288B00A92F4C /* Druid.cpp in Sources */,
 				A7FEA94E1CB6AE660036ED36 /* Monster.cpp in Sources */,
 				A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */,
+				A5E980F41CCBB49F00AABF3A /* Map.cpp in Sources */,
 				A56810D91CC6291900A92F4C /* Paladin.cpp in Sources */,
 				A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */,
 				A7FEA9451CB6ADEC0036ED36 /* Character.cpp in Sources */,

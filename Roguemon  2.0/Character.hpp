@@ -14,6 +14,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Constants.hpp"
+#include "Subject.hpp"
 
 
 

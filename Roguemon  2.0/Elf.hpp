@@ -17,9 +17,12 @@
 #include "TileMap.hpp"
 #include "Character.hpp"
 #include "Constants.hpp"
+//per observer
+#include <list>
+#include <vector>
 
 
-class Elf : public Character{
+class Elf : public Character, public Subject{
 public:
     
     Elf(int x, int y, int id, std::string addr);
@@ -42,8 +45,19 @@ public:
     
     void SetTextureState();
     
+    //per observer
+    void subscribe(Observer* o);
+    
+    void unsubscribe(Observer* o);
+    
+    void notify();
+    
     
 protected:
+    
+    //per observer
+    std::list <Observer*> observers;
+
     
 };
 
