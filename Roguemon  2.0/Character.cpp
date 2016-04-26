@@ -10,6 +10,4 @@ Character::Character(int x, int y, int id){
     life = 30;
 }
 
-
-
 Character::~Character(){};

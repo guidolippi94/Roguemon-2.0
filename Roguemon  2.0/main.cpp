@@ -99,13 +99,8 @@ int main()
      
      */
     
-    
-    
-    
     bool walk = true;
     int p=0;
-    
-    //std::cout << mappa[0][0]<<std::endl;
     
     // create the tilemap from the level definition
     TileMap map;
@@ -121,40 +116,37 @@ int main()
     if(p==-1){
         return 1;
     }
-    /*switch (p) {  //a seconda di cosa ritorna menuloop:...
+    Character * ch = nullptr;
+    Music *msc = new Music;
+
+    
+    switch (p) {  //a seconda di cosa ritorna menuloop:...
             
-        case 1:
-            characters.push_back((CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 1,"")));
+        case 1:{
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 1,""));
+            characters.push_back(ch);
             break;
-            
-        case 2:
-            characters.push_back((CharacterFactory::makeCharacter(CharacterFactory::Druido, 1, 1, 1, "")));
+        }
+        case 2:{
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Druido, 1, 1, 1,""));
+            characters.push_back(ch);
             break;
-            
-        case 3:
-            characters.push_back((CharacterFactory::makeCharacter(CharacterFactory::Paladino, 1, 1, 1, "")));
+        }
+        case 3:{
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Paladino, 1, 1, 1,""));
+            characters.push_back(ch);
             break;
-            
+        }
         default:
             break;
-    }*/
-    Elf* ch = new Elf(1, 1 , 1, "");
-    characters.push_back(ch);
-
+    }
     
-    //per observer
-    Map* Obs1 = new Map(ch);
-
-    
+    Map* Obs1 = new Map((MainCharacter*)ch);
     
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 2,"mewtwo.png"));
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 3,"greeninja.png"));
     
-    
-    /*for (itr = characters.begin() ; itr != characters.end() ; itr++){
-     (*itr)->init();
-     }*/
-    //sf::RenderWindow window(sf::VideoMode(32*30, 32*15), "prova");
+
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
     // run the main loop
     while (window.isOpen())
@@ -176,8 +168,6 @@ int main()
         window.clear();
         window.draw(map);
         
-        //view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
-        //---->fino a qui
         
         if (walk) {
             int k = getPressedKey();
@@ -208,8 +198,6 @@ int main()
 
         }
         
-        
-        //std::cout << c.getElapsedTime().asMilliseconds() << std::endl;
         if (c.getElapsedTime().asMilliseconds() > 150) {
             srand((unsigned int)c.getElapsedTime().asMicroseconds());
             int action = rand() % 4 + 1;
@@ -229,12 +217,12 @@ int main()
             walk=true;
             c.restart();
         }
-        for (itr = characters.begin() ; itr != characters.end()-1 ; ){  //modo rudimentale per fare incontro con mostri
+        /*for (itr = characters.begin() ; itr != characters.end()-1 ; ){  //modo rudimentale per fare incontro con mostri
             itr++;
             if(characters.at(0)->getPos() == (*itr)->getPos() ){
                 std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
             }
-        }
+        }*/
         for (itr = characters.begin() ; itr != characters.end() ; itr++){
             (*itr)->SetTextureState();
             window.draw((*itr)->getSprite());
@@ -246,6 +234,6 @@ int main()
         window.clear();
         
     } //chiude game loop
-    
+    delete Obs1;  //delete perchè senno da unused
     return 0;
 }//chiude main

@@ -6,7 +6,7 @@
 
 #include "Elf.hpp"
 
-Elf::Elf(int x, int y, int id, std::string addr):Character(x, y, id){
+Elf::Elf(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
     if(!playerTexture.loadFromFile("Elf.png"))//carico l immag del persongg
         std::cout<<"Elf not found"<<std::endl;
     playersprite.setTexture(playerTexture);
@@ -20,19 +20,7 @@ Elf::Elf(int x, int y, int id, std::string addr):Character(x, y, id){
     life=80;
 }
 
-void Elf::SetTextureState(){
-    if (updateFrame) {
-        
-        frameCounter = 0;
-        source.x ++;//la camminata animata perche scorre lungo la riga y
-        
-        if(source.x * 32 >= playerTexture.getSize().x)//e questo è per far ripartire la riga
-            source.x=0;
-    }
-    
-    playersprite.setTextureRect(sf::IntRect(source.x * 32, source.y * 32, 32, 32));    
-    updateFrame = false;
-}
+
 
 
 void Elf::walk(int mappa[dimMapx][dimMapy] , int index , int action)
@@ -110,20 +98,5 @@ void Elf::walk(int mappa[dimMapx][dimMapy] , int index , int action)
 
 
 
-//per observer
-void Elf::subscribe(Observer* o){
-    observers.push_back(o);
-}
 
-void Elf::unsubscribe(Observer* o){
-    observers.remove(o);
-}
-
-void Elf::notify(){
-    std::list <Observer *>::iterator itr;
-    for (itr = observers.begin(); itr != observers.end(); itr++){
-        (*itr) -> update();
-    }
-    
-}
 

@@ -2,7 +2,7 @@
 #include "Map.hpp"
 
 
-Map::Map(Elf* p) {    //alla costruzione 
+Map::Map(MainCharacter* p) {    //alla costruzione
     px = p;
     px->subscribe(this);
     lastJ=px->getPos().x;
@@ -13,7 +13,7 @@ Map::~Map(){
     px->unsubscribe(this);
 }
 
-void Map::update(){  //metodo update che non prende niente perchè pull ma chiama i get per sapere lastmsg e lastuser
+void Map::update(){  //metodo update che non prende niente perchè pull ma chiama i get per sapere 
     currentI= px->getPos().x;
     currentJ= px->getPos().y;
     callMusic();
@@ -24,6 +24,7 @@ void Map::callMusic(){
     if(musicMap[currentI][currentJ] != musicMap[lastI][lastJ]){
         lastI=currentI;
         lastJ=currentJ;
+        
         std::cout<<"changed zone"<<std::endl;
     }
 }

@@ -1,10 +1,4 @@
-//
-//  Character.hpp
-//  provamappa
-//
-//  Created by Francesco Pegoraro on 07/04/16.
-//  Copyright © 2016 Francesco Pegoraro. All rights reserved.
-//
+
 
 #ifndef Character_hpp
 #define Character_hpp
@@ -24,11 +18,10 @@ public:
     
     Character(int x, int y, int id);
     
-    
     virtual ~Character() = 0;
     
-    virtual int getId() = 0;
     
+    virtual int getId() = 0;
     
     virtual void walk(int mappa[dimMapx][dimMapy], int index , int action) = 0;
     

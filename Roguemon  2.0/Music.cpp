@@ -1,14 +1,12 @@
 
-
 #include "Music.hpp"
+#include <iostream>
 
-
-void Music::playMusic(){
-    
-    if(!soundtrack.loadFromFile("Music1.wav"))//carico soundtrack, **essendo lunga meglio fare Music1 e .ogg!!!
-        std::cout<<"soundtrack not found"<<std::endl;
-    
+void Music::playMusic(int m){
+    std::string file = std::to_string(m) + ".ogg";
+    if(!soundtrack.loadFromFile(file))//carico soundtrack
+        std::cout<<m<<" not found"<<std::endl;
     sound.setBuffer(soundtrack);
     sound.play();
-    sound.setVolume(0);
+    sound.setVolume(30);
 }

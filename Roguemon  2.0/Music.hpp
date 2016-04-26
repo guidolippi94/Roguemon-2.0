@@ -1,10 +1,4 @@
-//
-//  Music.hpp
-//  Roguemon  2.0
-//
-//  Created by Francesco Pegoraro on 23/04/16.
-//  Copyright © 2016 guidolippi. All rights reserved.
-//
+
 
 #ifndef Music_hpp
 #define Music_hpp
@@ -24,7 +18,7 @@
 class Music {
 public:
     
-    void playMusic();
+    void playMusic(int m);
     
 protected:
     

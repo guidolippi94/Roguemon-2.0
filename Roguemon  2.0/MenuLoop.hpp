@@ -72,11 +72,6 @@ int MenuLoop(){
     Paladinstats.setColor(sf::Color::White);
     Paladinstats.setPosition(32*11-10, 145);
 
-
-
-
-    
-    
     
     //Character frontal sprites
     sf::Texture elfTexture, druidTexture, paladinTexture;
@@ -170,16 +165,6 @@ int getPressedKey(){
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
         return 5;
     }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
-        return 6;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::B)){
-        return 7;
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::C)){
-        return 8;
-    }
-    
     else return -1;
 }
 

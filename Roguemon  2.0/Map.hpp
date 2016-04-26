@@ -1,10 +1,3 @@
-//
-//  Map.hpp
-//  Roguemon  2.0
-//
-//  Created by Francesco Pegoraro on 23/04/16.
-//  Copyright © 2016 guidolippi. All rights reserved.
-//
 
 #ifndef Map_hpp
 #define Map_hpp
@@ -13,12 +6,13 @@
 #include "Constants.hpp"
 #include "Observer.hpp"
 #include "Elf.hpp"
+#include "Music.hpp"
 
 class Map : public Observer{
     
 public:
     
-    Map(Elf* p);
+    Map(MainCharacter* p);
     
     ~Map();
     
@@ -40,10 +34,10 @@ public:
     };
     
 private:
-    Elf* px;
-    int currentI;
+    MainCharacter* px;
+    int currentI;  //indicheranno la posizione in quel moomento del player
     int currentJ;
-    int lastI;  //indicheranno la posizione in quel moomento del player
+    int lastI;
     int lastJ;
 
 };
