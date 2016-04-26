@@ -39,6 +39,6 @@ private:
     int currentJ;
     int lastI;
     int lastJ;
-
+    Music music;
 };
 #endif /* Map_hpp */

@@ -7,6 +7,7 @@ Map::Map(MainCharacter* p) {    //alla costruzione
     px->subscribe(this);
     lastJ=px->getPos().x;
     lastI=px->getPos().y;
+
 }
 
 Map::~Map(){
@@ -24,8 +25,7 @@ void Map::callMusic(){
     if(musicMap[currentI][currentJ] != musicMap[lastI][lastJ]){
         lastI=currentI;
         lastJ=currentJ;
-        
-        std::cout<<"changed zone"<<std::endl;
+        music.playMusic(musicMap[currentI][currentJ]);
     }
 }
 

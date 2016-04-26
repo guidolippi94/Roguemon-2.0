@@ -117,7 +117,6 @@ int main()
         return 1;
     }
     Character * ch = nullptr;
-    Music *msc = new Music;
 
     
     switch (p) {  //a seconda di cosa ritorna menuloop:...
