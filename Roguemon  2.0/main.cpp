@@ -166,7 +166,8 @@ int main()
         // draw the map
         window.clear();
         window.draw(map);
-        
+        view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
+
         
         if (walk) {
             int k = getPressedKey();
@@ -189,7 +190,6 @@ int main()
                     if (positionview.y<0) {
                         positionview.y=0;
                     }
-                    view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
                     usleep(6000);
                 }
             }
