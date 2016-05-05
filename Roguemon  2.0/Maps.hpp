@@ -37,3 +37,13 @@ int mappa[dimMapx][dimMapy]=
 
 
 #endif /* Maps_hpp */
+
+
+/*
+ TileMap prende in ingresso un vettore
+ Migliore gestione con matrice
+ 
+ 
+ crea matrice BaseMap -> contiene 
+ 
+ */
