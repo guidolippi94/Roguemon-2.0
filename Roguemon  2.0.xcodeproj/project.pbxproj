@@ -37,6 +37,7 @@
 		A5E980F61CCBD38900AABF3A /* Music.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Music.hpp; sourceTree = "<group>"; };
 		A5F272F81CCFADFF005B26F3 /* MainCharacter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainCharacter.cpp; sourceTree = "<group>"; };
 		A5F272F91CCFADFF005B26F3 /* MainCharacter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainCharacter.hpp; sourceTree = "<group>"; };
+		A7F728FF1CDBE07200B0FC32 /* Maps.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Maps.hpp; sourceTree = "<group>"; };
 		A7FEA92B1CB6AB850036ED36 /* Roguemon  2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Roguemon  2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7FEA92F1CB6AB850036ED36 /* Roguemon  2.0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Roguemon  2.0-Info.plist"; sourceTree = "<group>"; };
 		A7FEA9331CB6AB850036ED36 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				A7FEA9331CB6AB850036ED36 /* main.cpp */,
+				A7F728FF1CDBE07200B0FC32 /* Maps.hpp */,
 				A527A3D61CC7E5A700D849A3 /* Constants.hpp */,
 				A5E980EF1CCBB30000AABF3A /* Observer.hpp */,
 				A59744851CB8508300517644 /* CharacterFactory.hpp */,
