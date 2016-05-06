@@ -1,5 +1,3 @@
-
-
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <stdio.h>
@@ -13,6 +11,7 @@
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
 #include "Constants.hpp"
+#include "Maps.hpp"
 
 //per observer
 #include "Map.hpp"
@@ -27,14 +26,39 @@ int main()
     sf::Vector2i screenDimensions(screenY, screenX);
     sf::View view;
 
+    //TODO  create random matrix of 0,1,2,3
     
     for(int i=0; i<dimMapx; i++){
-        std::cout<<" "<<std::endl;
+        for(int j=0; j<dimMapy; j++){
+            if (i==0 || j==0) {
+                baseMap[i][j]=0;
+            }
+            else if(i==(dimMapx-1) || j==(dimMapy-1))
+            {
+                baseMap[i][j]=0;
+            }
+            else baseMap[i][j]=1;
+        }
+    }
+    
+    
+    for(int i=dimMapx/2; i<dimMapx-1; i++){
+        for(int j=dimMapy/2; j<dimMapy-1; j++){
+            baseMap[i][j]=2;
+        }
+    }
+    
+    for(int i=1; i<dimMapx/2; i++){
+        for(int j=1; j<dimMapy/2; j++){
+            baseMap[i][j]=3;
+        }
+    }
+    
+    for(int i=0; i<dimMapx; i++){
         for(int j=0; j<dimMapy; j++){
             if(baseMap[i][j]!=0)
                 walkMap[i][j]=0;
             else walkMap[i][j]=1;
-            std::cout<<walkMap[i][j];
         }
     }
     
@@ -47,53 +71,8 @@ int main()
         }
     }
     
-    //---->fino a qui
 
-    /*
-     int level[40000];
-     int walkMap[200][200]={0};
-     
-     //setta tutti i confini come no-walkable
-     for(int i=0; i<40000; i++){
-     if(i%199==0 || i%200==0)
-     level[i]=0;
-     else
-     level[i]=1;
-     }
-     //margini della walkMap non walkable con alberi
-     for (int i=0; i<200; i++) {
-     level[i]=0;
-     }
-     
-     for (int i=40000; i>39800; i--) {
-     level[i]=0;
-     }
-     
-     
-     
-     
-     for(int i=0; i<200; i++)
-     {
-     walkMap[0][i]=1;
-     walkMap[199][i]=1;
-     walkMap[i][0]=1;
-     walkMap[i][199]=1;
-     
-     }
-     
-     int counterVector=0;
-     
-     for(int i=0; i<200; i++){
-     for(int j=0; j<200; j++){
-     if(level[counterVector]!=0)
-     walkMap[i][j]=0;
-     else
-     walkMap[i][j]=1;
-     counterVector++;
-     }
-     }
-     
-     */
+    
     
     bool walk = true;
     int p=0;
