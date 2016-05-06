@@ -115,7 +115,7 @@ int main()
             break;
     }
     
-    Map* Obs1 = new Map((MainCharacter*)ch);
+    Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 2,"mewtwo.png"));
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 3,"greeninja.png"));
