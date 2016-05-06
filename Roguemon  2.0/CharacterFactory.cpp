@@ -6,6 +6,7 @@ Character* CharacterFactory::makeCharacter(CharacterFactory::CharacterType type,
     Character *ch;
     switch (type) {
         case CharacterFactory::Elfo:
+            
             ch = new Elf(x, y , id, addr);
             break;
         case CharacterFactory::Druido:
