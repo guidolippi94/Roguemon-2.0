@@ -29,7 +29,7 @@ public:
 
     
     
-    void walk(int mappa[dimMapx][dimMapy], int index , int action);
+    void walk(int walkMap[dimMapx][dimMapy], int index , int action);
     
 
     

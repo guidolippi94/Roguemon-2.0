@@ -10,40 +10,52 @@
 #define Maps_hpp
 
 #include <stdio.h>
+#include "Constants.hpp"
 
-const int level[] = //mappa  0->albero   1->erba   2->sabbia   3->roccia
-{
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 0,
-    0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 0,
-    0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 0,
-    0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 0,
-    0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-    0, 0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0,
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-};
-//walkable    1->NO     0->SI
-int mappa[dimMapx][dimMapy]=
-{
-    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
+const int baseMap [dimMapx][dimMapy]={
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 0},
+    {0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 0},
+    {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 1, 0},
+    {0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 0},
+    {0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    {0, 0, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
+
+int walkMap[dimMapx][dimMapy];
+
+int level[dimMapx*dimMapy];
 
 #endif /* Maps_hpp */
 
 
+
+
 /*
- TileMap prende in ingresso un vettore
- Migliore gestione con matrice
  
  
- crea matrice BaseMap -> contiene 
+ crea matrice BaseMap -> contiene 0,1,2,3 per musica e tile
+ 
+ crea matrice di conversione da BasMap a walkableMap di binari
+ 
+ crea vettore di 0,1,2,3 che andra in input a tilemap
+ 
+ 
+ 
+ 
+ 
+ 
+ int *makeLevel(int b[dimMapx][dimMapy]);
+ 
+ int *makeLevel(int b[dimMapx][dimMapy]){
+ static int area[dimMapx*dimMapy];
+ 
+ 
+ }
+ return area;
+ }
+
  
  */
