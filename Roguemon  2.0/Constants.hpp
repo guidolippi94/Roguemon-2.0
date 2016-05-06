@@ -5,8 +5,8 @@
 
 #include <stdio.h>
 
-const int dimMapx = 50;
-const int dimMapy = 50;
+const int dimMapx = 100;
+const int dimMapy = 100;
 
 const int screenX = 32*24;
 const int screenY = 32*48;

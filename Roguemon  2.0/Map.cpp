@@ -2,7 +2,7 @@
 #include "Map.hpp"
 
 
-Map::Map(MainCharacter* p, int mapCtor[dimMapx][dimMapy]) {    //alla costruzione
+Map::Map(MainCharacter* p, int** mapCtor) {    //alla costruzione
     px = p;
     px->subscribe(this);
     lastJ=px->getPos().x;

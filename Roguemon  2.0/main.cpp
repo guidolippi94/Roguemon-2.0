@@ -26,54 +26,11 @@ int main()
     sf::Vector2i screenDimensions(screenY, screenX);
     sf::View view;
 
-    //TODO  create random matrix of 0,1,2,3
-    
-    for(int i=0; i<dimMapx; i++){
-        for(int j=0; j<dimMapy; j++){
-            if (i==0 || j==0) {
-                baseMap[i][j]=0;
-            }
-            else if(i==(dimMapx-1) || j==(dimMapy-1))
-            {
-                baseMap[i][j]=0;
-            }
-            else baseMap[i][j]=1;
-        }
-    }
-    
-    
-    for(int i=dimMapx/2; i<dimMapx-1; i++){
-        for(int j=dimMapy/2; j<dimMapy-1; j++){
-            baseMap[i][j]=2;
-        }
-    }
-    
-    for(int i=1; i<dimMapx/2; i++){
-        for(int j=1; j<dimMapy/2; j++){
-            baseMap[i][j]=3;
-        }
-    }
-    
-    for(int i=0; i<dimMapx; i++){
-        for(int j=0; j<dimMapy; j++){
-            if(baseMap[i][j]!=0)
-                walkMap[i][j]=0;
-            else walkMap[i][j]=1;
-        }
-    }
-    
-    
-    int count=0;
-    for(int i=0; i<dimMapx; i++){
-        for(int j=0; j<dimMapy; j++){
-            level[count]=baseMap[i][j];
-            count++;
-        }
-    }
+    baseMap = createBaseMap(dimMapy, dimMapx);
+    walkMap=createWalkable(dimMapy, dimMapx);
+    level=createLevel(dimMapy, dimMapx);
     
 
-    
-    
     bool walk = true;
     int p=0;
     

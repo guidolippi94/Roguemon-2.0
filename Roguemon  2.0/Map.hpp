@@ -12,7 +12,7 @@ class Map : public Observer{
     
 public:
     
-    Map(MainCharacter* p, int mapCtor[dimMapx][dimMapy]);
+    Map(MainCharacter* p, int** mapCtor);
     
     ~Map();
     
