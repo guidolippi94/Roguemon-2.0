@@ -10,7 +10,7 @@
 #define Maps_hpp
 
 #include <stdio.h>
-#include "Constants.hpp"
+// #include "Constants.hpp"
 /*
 const int baseMap [dimMapx][dimMapy]={
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -25,11 +25,7 @@ const int baseMap [dimMapx][dimMapy]={
 
 */
 
-int baseMap[dimMapx][dimMapy]={0};
 
-int walkMap[dimMapx][dimMapy];
-
-int level[dimMapx*dimMapy];
 
 #endif /* Maps_hpp */
 
