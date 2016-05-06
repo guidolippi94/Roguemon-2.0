@@ -19,18 +19,39 @@
 #include "Maps.hpp"
 //asdfghjkkjhgfdsasdfghjhgfdsdfgh
 
+
 int main()
 {
     //movimento telecamera
     sf::Vector2i positionview(0,0);
     sf::Vector2i screenDimensions(screenY, screenX);
     sf::View view;
- 
+
+    
+    for(int i=0; i<dimMapx; i++){
+        std::cout<<" "<<std::endl;
+        for(int j=0; j<dimMapy; j++){
+            if(baseMap[i][j]!=0)
+                walkMap[i][j]=0;
+            else walkMap[i][j]=1;
+            std::cout<<walkMap[i][j];
+        }
+    }
+    
+    
+    int count=0;
+    for(int i=0; i<dimMapx; i++){
+        for(int j=0; j<dimMapy; j++){
+            level[count]=baseMap[i][j];
+            count++;
+        }
+    }
+    
     //---->fino a qui
 
     /*
      int level[40000];
-     int mappa[200][200]={0};
+     int walkMap[200][200]={0};
      
      //setta tutti i confini come no-walkable
      for(int i=0; i<40000; i++){
@@ -39,7 +60,7 @@ int main()
      else
      level[i]=1;
      }
-     //margini della mappa non walkable con alberi
+     //margini della walkMap non walkable con alberi
      for (int i=0; i<200; i++) {
      level[i]=0;
      }
@@ -53,10 +74,10 @@ int main()
      
      for(int i=0; i<200; i++)
      {
-     mappa[0][i]=1;
-     mappa[199][i]=1;
-     mappa[i][0]=1;
-     mappa[i][199]=1;
+     walkMap[0][i]=1;
+     walkMap[199][i]=1;
+     walkMap[i][0]=1;
+     walkMap[i][199]=1;
      
      }
      
@@ -65,9 +86,9 @@ int main()
      for(int i=0; i<200; i++){
      for(int j=0; j<200; j++){
      if(level[counterVector]!=0)
-     mappa[i][j]=0;
+     walkMap[i][j]=0;
      else
-     mappa[i][j]=1;
+     walkMap[i][j]=1;
      counterVector++;
      }
      }
@@ -148,7 +169,7 @@ int main()
             int k = getPressedKey();
             if(k != -1){
                 for(int index = 2 ; index < 33 ; index++){
-                    characters.at(0)->walk(mappa, index , k);
+                    characters.at(0)->walk(walkMap, index , k);
                     window.clear();
                     window.draw(map);
                     for (itr = characters.begin() ; itr != characters.end() ; itr++){
@@ -178,7 +199,7 @@ int main()
             for(int index = 2 ; index < 33 ; index++){
                 for (itr = characters.begin() ; itr != characters.end()-1 ; ){
                     itr++;
-                    (*itr)->walk(mappa, index, (action+(*itr)->getId())%4+1);
+                    (*itr)->walk(walkMap, index, (action+(*itr)->getId())%4+1);
                 }
                 window.clear();
                 window.draw(map);

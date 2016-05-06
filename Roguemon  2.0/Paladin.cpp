@@ -22,12 +22,12 @@ Paladin::Paladin(int x, int y, int id, std::string addr):MainCharacter(x, y, id)
 
 
 
-void Paladin::walk(int mappa[dimMapx][dimMapy] , int index , int action)
+void Paladin::walk(int walkMap[dimMapx][dimMapy] , int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Down;
         SetTextureState();
-        if(mappa[position.x-1][position.y] != 1){
+        if(walkMap[position.x-1][position.y] != 1){
             playersprite.setPosition((position.y)*32, (position.x)*32 - index);
             if(index % 8 == 0){
                 updateFrame = true;
@@ -44,7 +44,7 @@ void Paladin::walk(int mappa[dimMapx][dimMapy] , int index , int action)
     else if(action == 2){
         source.y=Left;
         SetTextureState();
-        if(mappa[position.x+1][position.y] != 1){
+        if(walkMap[position.x+1][position.y] != 1){
             playersprite.setPosition((position.y)*32, (position.x)*32 + index);
             if(index % 8 == 0){
                 updateFrame = true;
@@ -61,7 +61,7 @@ void Paladin::walk(int mappa[dimMapx][dimMapy] , int index , int action)
     else if(action == 3){
         source.y=Up;
         SetTextureState();
-        if(mappa[position.x][position.y+1] != 1){
+        if(walkMap[position.x][position.y+1] != 1){
             playersprite.setPosition((position.y)*32 +index, (position.x)*32);
             if(index % 8 == 0){
                 updateFrame = true;
@@ -78,7 +78,7 @@ void Paladin::walk(int mappa[dimMapx][dimMapy] , int index , int action)
     else if(action == 4){
         source.y=Right;
         SetTextureState();
-        if(mappa[position.x][position.y-1] != 1){
+        if(walkMap[position.x][position.y-1] != 1){
             playersprite.setPosition((position.y)*32 -index, (position.x)*32);
             if(index % 8 == 0){
                 updateFrame = true;

@@ -19,7 +19,7 @@ public:
     MainCharacter(int x, int y, int id):Character(x, y, id){}
 
     
-    void walk(int mappa[dimMapx][dimMapy], int index , int action){
+    void walk(int walkMap[dimMapx][dimMapy], int index , int action){
     }
     
     int getId(){
