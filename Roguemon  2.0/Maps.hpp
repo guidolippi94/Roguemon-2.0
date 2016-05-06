@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include "Constants.hpp"
-
+/*
 const int baseMap [dimMapx][dimMapy]={
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 3, 3, 0},
@@ -23,6 +23,9 @@ const int baseMap [dimMapx][dimMapy]={
     {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
+*/
+
+int baseMap[dimMapx][dimMapy]={0};
 
 int walkMap[dimMapx][dimMapy];
 
@@ -41,10 +44,6 @@ int level[dimMapx*dimMapy];
  crea matrice di conversione da BasMap a walkableMap di binari
  
  crea vettore di 0,1,2,3 che andra in input a tilemap
- 
- 
- 
- 
  
  
  int *makeLevel(int b[dimMapx][dimMapy]);
