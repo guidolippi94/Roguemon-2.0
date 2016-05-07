@@ -30,6 +30,8 @@ int main()
     sf::View view;
 
     baseMap = createBaseMap(dimMapy, dimMapx);
+    generateTrees(dimMapy, dimMapy, baseMap);
+    createArea(2, 2, 30, 10, 's');
     walkMap = createWalkable(dimMapy, dimMapx);
     level = createLevel(dimMapy, dimMapx);
     
