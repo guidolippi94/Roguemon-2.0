@@ -29,7 +29,7 @@ public:
         
     }
 
-    void walk(int walkMap[dimMapx][dimMapy], int index , int action);
+    void walk(int** walkMap, int index , int action);
 
     
 protected:

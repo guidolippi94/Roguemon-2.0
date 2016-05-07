@@ -12,7 +12,7 @@ class Map : public Observer{
     
 public:
     
-    Map(MainCharacter* p);
+    Map(MainCharacter* p, int** mapCtor);
     
     ~Map();
     
@@ -21,17 +21,7 @@ public:
     void callMusic();
     
     
-    int musicMap[dimMapx][dimMapy]=
-    {
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 1},
-        {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 1},
-        {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 0, 1},
-        {1, 0, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 1},
-        {1, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 1, 0, 0, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-        {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
-    };
+    int musicMap[dimMapx][dimMapy];
     
 private:
     MainCharacter* px;

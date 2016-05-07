@@ -23,7 +23,7 @@ public:
     
     virtual int getId() = 0;
     
-    virtual void walk(int walkMap[dimMapx][dimMapy], int index , int action) = 0;
+    virtual void walk(int** walkMap, int index , int action) = 0;
     
     virtual sf::Vector2i getPos() = 0;
     
