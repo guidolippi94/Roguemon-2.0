@@ -24,7 +24,7 @@ Druid::Druid(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
 
 
 
-void Druid::walk(int walkMap[dimMapx][dimMapy] , int index , int action)
+void Druid::walk(int** walkMap , int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Down;

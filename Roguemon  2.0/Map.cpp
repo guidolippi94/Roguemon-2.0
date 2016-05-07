@@ -2,11 +2,19 @@
 #include "Map.hpp"
 
 
-Map::Map(MainCharacter* p) {    //alla costruzione
+Map::Map(MainCharacter* p, int** mapCtor) {    //alla costruzione
     px = p;
     px->subscribe(this);
     lastJ=px->getPos().x;
     lastI=px->getPos().y;
+
+    
+    
+    for(int i=0; i<dimMapx; i++){
+        for(int j=0; j<dimMapy; j++){
+            musicMap[i][j]=mapCtor[i][j];
+        }
+    }
 
 }
 
