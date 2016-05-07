@@ -44,8 +44,7 @@ int** createBaseMap(unsigned height, unsigned width)
 int** createWalkable(unsigned height, unsigned width){
     int** array2D=0;
     array2D=new int*[height];
-    
-    for(int h=0; h<height; h++){
+        for(int h=0; h<height; h++){
         array2D[h]=new int[width];
         for(int w=0; w<width; w++){
             if(baseMap[h][w]!=0)
@@ -65,6 +64,22 @@ int* createLevel(unsigned height, unsigned width){
         }
     }
     return array;
+}
+
+void placeTree(int height, int width, int** mainMap){
+    for (int h = 0; h < height; h++)
+    {
+        for (int w = 0; w < width; w++)
+        {
+            if (h!=0 && w!=0 && h!=(width-1) && w!=(height-1)){
+              unsigned short int tempValue=rand()%9;
+            if(tempValue!=0)
+                mainMap[h][w]=1;
+            else mainMap[h][w]=0;
+            }
+        }
+    }
+
 }
 #endif /* Maps_hpp */
 

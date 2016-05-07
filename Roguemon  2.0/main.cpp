@@ -27,8 +27,9 @@ int main()
     sf::View view;
 
     baseMap = createBaseMap(dimMapy, dimMapx);
-    walkMap=createWalkable(dimMapy, dimMapx);
     level=createLevel(dimMapy, dimMapx);
+    walkMap=createWalkable(dimMapy, dimMapx);
+
     
 
     bool walk = true;
