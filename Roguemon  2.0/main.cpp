@@ -4,19 +4,30 @@
 #include <unistd.h>
 #include <iostream>
 #include <stdexcept>
+#include <cmath>
+
 
 #include "CharacterFactory.hpp"
 #include "Monster.hpp"
 #include "Elf.hpp"
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
+#include "BattleLoop.hpp"
 #include "Constants.hpp"
 #include "Maps.hpp"
 
 //per observer
 #include "Map.hpp"
 #include "Maps.hpp"
-//asdfghjkkjhgfdsasdfghjhgfdsdfgh
+
+bool collision (sf::Vector2f vp1, sf::Vector2f vp2){  //metodo per collisioni con nemici, se ci troviamo in un raggio di 4px
+    float a=fabs(vp1.x-vp2.x);  //fabs fa il valore assoluto
+    float b=fabs(vp1.y-vp2.y);
+    if (a<4 && b<4) {
+        return true;
+    }
+    return false;
+}
 
 
 int main()
@@ -27,8 +38,8 @@ int main()
     sf::View view;
 
     baseMap = createBaseMap(dimMapy, dimMapx);
-    walkMap=createWalkable(dimMapy, dimMapx);
-    level=createLevel(dimMapy, dimMapx);
+    walkMap = createWalkable(dimMapy, dimMapx);
+    level = createLevel(dimMapy, dimMapx);
     
 
     bool walk = true;
@@ -136,6 +147,12 @@ int main()
                 for (itr = characters.begin() ; itr != characters.end()-1 ; ){
                     itr++;
                     (*itr)->walk(walkMap, index, (action+(*itr)->getId())%4+1);
+                    if(collision(characters.at(0)->getSprite().getPosition(), (*itr)->getSprite().getPosition())){  //added method collision
+                        std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
+                        BattleLoop();
+
+                    }
+
                 }
                 window.clear();
                 window.draw(map);

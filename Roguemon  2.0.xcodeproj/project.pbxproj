@@ -29,6 +29,7 @@
 		A56810D81CC6291900A92F4C /* Paladin.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Paladin.hpp; sourceTree = "<group>"; };
 		A59744841CB8508300517644 /* CharacterFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterFactory.cpp; sourceTree = "<group>"; };
 		A59744851CB8508300517644 /* CharacterFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterFactory.hpp; sourceTree = "<group>"; };
+		A59E6B2A1CDE20BF000155C2 /* BattleLoop.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleLoop.hpp; sourceTree = "<group>"; };
 		A5E980EF1CCBB30000AABF3A /* Observer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Observer.hpp; sourceTree = "<group>"; };
 		A5E980F11CCBB35C00AABF3A /* Subject.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Subject.hpp; sourceTree = "<group>"; };
 		A5E980F21CCBB49F00AABF3A /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 				A5E980EF1CCBB30000AABF3A /* Observer.hpp */,
 				A59744851CB8508300517644 /* CharacterFactory.hpp */,
 				A59744841CB8508300517644 /* CharacterFactory.cpp */,
+				A59E6B2A1CDE20BF000155C2 /* BattleLoop.hpp */,
 				A5E980F31CCBB49F00AABF3A /* Map.hpp */,
 				A5E980F21CCBB49F00AABF3A /* Map.cpp */,
 				A5E980F61CCBD38900AABF3A /* Music.hpp */,
