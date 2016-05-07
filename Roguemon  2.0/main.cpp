@@ -20,14 +20,6 @@
 #include "Map.hpp"
 #include "Maps.hpp"
 
-bool collision (sf::Vector2f vp1, sf::Vector2f vp2){  //metodo per collisioni con nemici, se ci troviamo in un raggio di 4px
-    float a=fabs(vp1.x-vp2.x);  //fabs fa il valore assoluto
-    float b=fabs(vp1.y-vp2.y);
-    if (a<4 && b<4) {
-        return true;
-    }
-    return false;
-}
 
 
 int main()
@@ -144,12 +136,12 @@ int main()
             srand((unsigned int)c.getElapsedTime().asMicroseconds());
             int action = rand() % 4 + 1;
             for(int index = 2 ; index < 33 ; index++){
-                for (itr = characters.begin() ; itr != characters.end()-1 ; ){
+                for (itr = characters.begin() ; itr != characters.end()-1 ; ){  //non è il for completo cosi salta il mainplayer!
                     itr++;
                     (*itr)->walk(walkMap, index, (action+(*itr)->getId())%4+1);
                     if(collision(characters.at(0)->getSprite().getPosition(), (*itr)->getSprite().getPosition())){  //added method collision
                         std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
-                        BattleLoop();
+                        BattleLoop(characters.at(0), *itr);
 
                     }
 
@@ -165,12 +157,7 @@ int main()
             walk=true;
             c.restart();
         }
-        /*for (itr = characters.begin() ; itr != characters.end()-1 ; ){  //modo rudimentale per fare incontro con mostri
-            itr++;
-            if(characters.at(0)->getPos() == (*itr)->getPos() ){
-                std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
-            }
-        }*/
+   
         for (itr = characters.begin() ; itr != characters.end() ; itr++){
             (*itr)->SetTextureState();
             window.draw((*itr)->getSprite());
