@@ -57,8 +57,12 @@ void BattleLoop(Character *player, Character *enemy){
             }
             
             
-       
+            window2.clear();
+
         }
+        
+        
+        
         window2.clear();
         window2.draw(battleSprite);
         window2.draw(enemySprite);

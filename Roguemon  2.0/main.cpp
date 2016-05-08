@@ -68,17 +68,17 @@ int main()
     switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 1,""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0,""));
             characters.push_back(ch);
             break;
         }
         case 2:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Druido, 1, 1, 1,""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Druido, 1, 1, 0,""));
             characters.push_back(ch);
             break;
         }
         case 3:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Paladino, 1, 1, 1,""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Paladino, 1, 1, 0,""));
             characters.push_back(ch);
             break;
         }
@@ -88,8 +88,12 @@ int main()
     
     Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 7, 2,"mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 3, 3,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 7, 1,"mewtwo.png"));
+    
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 3, 2,"greeninja.png"));
+
+
+
     
 
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
@@ -151,12 +155,14 @@ int main()
             srand((unsigned int)c.getElapsedTime().asMicroseconds());
             int action = rand() % 4 + 1;
             for(int index = 2 ; index < 33 ; index++){
-                for (itr = characters.begin() ; itr != characters.end()-1 ; ){  //non è il for completo cosi salta il mainplayer!
-                    itr++;
-                    (*itr)->walk(walkMap, index, (action+(*itr)->getId())%4+1);
-                    if(collision(characters.at(0)->getSprite().getPosition(), (*itr)->getSprite().getPosition())){  //added method collision
-                        std::cout << "Monster " << (*itr)->getId() << " wants to fight!"<<std::endl;
-                        BattleLoop(characters.at(0), *itr);
+                for (int id=1; id<characters.size(); id++ ){  //non è il for completo cosi salta il mainplayer!
+                    characters.at(id)->walk(walkMap, index, (action+characters.at(id)->getId())%4+1);
+                    if(collision(characters.at(0)->getSprite().getPosition(), characters.at(id)->getSprite().getPosition())){  //added method collision
+                        std::cout << "Monster " << characters.at(id)->getId() << " wants to fight!"<<std::endl;
+                        BattleLoop(characters.at(0), characters.at(id));
+                        characters.erase(characters.begin()+id);
+                        //characters.at(id)=characters.back();
+                        //characters.pop_back();
 
                     }
 
