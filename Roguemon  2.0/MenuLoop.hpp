@@ -15,9 +15,18 @@
 
 
 int MenuLoop(){
-    sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "prova");
+    sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "Choose your Character");
     int k=1;  //a seconda dell'ultimo tasto premuto nel menu ritorna o 1 o 2 o 3
 
+    
+    //icon
+    sf::Image icon;
+    if (!icon.loadFromFile("icon.png")) {
+        return EXIT_FAILURE;
+    }
+    window1.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+
+    
     sf::Text elfName, druidName, paladinName;
     elfName.setString("Legolas");
     druidName.setString("Radagast");

@@ -24,6 +24,14 @@
 
 int main()
 {
+    //icon
+    sf::Image icon;
+    if (!icon.loadFromFile("icon.png")) {
+        return EXIT_FAILURE;
+    }
+    
+    
+
     //movimento telecamera
     sf::Vector2i positionview(0,0);
     sf::Vector2i screenDimensions(screenY, screenX);
@@ -80,11 +88,15 @@ int main()
     
     Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 2,"mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 3, 3,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 7, 2,"mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 3, 3,"greeninja.png"));
     
 
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
+    
+    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    
+    
     // run the main loop
     while (window.isOpen())
     {

@@ -8,7 +8,7 @@ Map::Map(MainCharacter* p, int** mapCtor) {    //alla costruzione
     lastJ=px->getPos().x;
     lastI=px->getPos().y;
 
-    
+
     
     for(int i=0; i<dimMapx; i++){
         for(int j=0; j<dimMapy; j++){

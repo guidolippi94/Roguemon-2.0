@@ -25,7 +25,7 @@ public:
     
 private:
     MainCharacter* px;
-    int currentI;  //indicheranno la posizione in quel moomento del player
+    int currentI;  //indicheranno la posizione in quel momento del player
     int currentJ;
     int lastI;
     int lastJ;

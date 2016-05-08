@@ -10,7 +10,7 @@ Monster::Monster(int x, int y, int id, std::string addr):Character(x, y, id){
     if(!playerTexture.loadFromFile(addr))//carico l immag del persongg
         std::cout<<addr<<" not found"<<std::endl;
     playersprite.setTexture(playerTexture);
-    playersprite.setPosition(32,32);
+    playersprite.setPosition(32*position.y,32*position.x);
     source.x = 1;
     source.y = Right;  //cambiare per posizione di partenza
     updateFrame = false;
