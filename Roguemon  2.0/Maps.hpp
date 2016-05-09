@@ -41,14 +41,13 @@ int** createWalkable(unsigned height, unsigned width){
     for(int h=0; h<height; h++){
         array2D[h]=new int[width];
         for(int w=0; w<width; w++){
-            if(baseMap[h][w]!=0)
-                array2D[h][w]=0;
-            else array2D[h][w]=1;
+            if(baseMap[h][w]==0 || baseMap[h][w]==4 || baseMap[h][w]==5)
+                array2D[h][w]=1;
+            else array2D[h][w]=0;
         }
     }
     return array2D;
 }
-
 int* createLevel(unsigned height, unsigned width){
     int* array=0;
     unsigned count=0;
@@ -93,6 +92,12 @@ void createArea(int originX, int originY, int sizeX, int sizeY, char tileType){
                     
                 case 'r':
                     baseMap[h][w]=3;
+                    break;
+                case 'a':
+                    baseMap[h][w]=4;
+                    break;
+                    case 'b':
+                    baseMap[h][w]=5;
                     break;
                     
                 default:

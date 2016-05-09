@@ -41,6 +41,7 @@ int main()
     generateTrees(dimMapy, dimMapy, baseMap);
     baseMap[1][1]=0;
     createArea(2, 2, 30, 10, 's');
+    createArea(5, 5, 3, 3, 'a');
     walkMap = createWalkable(dimMapy, dimMapx);
     level = createLevel(dimMapy, dimMapx);
     
