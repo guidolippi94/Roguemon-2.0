@@ -41,6 +41,10 @@ public:
         return playersprite;
     }
     
+    std::string getType(){
+        return type;
+    }
+    
     void SetTextureState();
     
     

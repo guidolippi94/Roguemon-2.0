@@ -34,6 +34,11 @@ public:
         return playersprite;
     }
     
+    std::string getType(){
+        return type;
+    }
+ 
+    
     void SetTextureState();
     
     std::list <Observer*> observers;
@@ -43,7 +48,8 @@ public:
     void unsubscribe(Observer* o);
     
     void notify();
-    
+   
+protected:
 };
 
 

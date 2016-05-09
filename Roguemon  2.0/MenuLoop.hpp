@@ -149,7 +149,6 @@ int MenuLoop(){
             window1.draw(Elfstats);
             window1.draw(Druidstats);
             window1.draw(Paladinstats);
-
             window1.draw(rectangle);
             window1.display();
             }

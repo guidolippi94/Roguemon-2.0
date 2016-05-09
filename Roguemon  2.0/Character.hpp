@@ -29,6 +29,8 @@ public:
     
     virtual sf::Sprite getSprite() = 0;
     
+    virtual std::string getType() = 0;
+    
     virtual void SetTextureState() = 0;
     
 protected:
@@ -47,6 +49,8 @@ protected:
     
     sf::Texture playerTexture;
     sf::Sprite playersprite;
+    std::string type;
+
     
 };
 

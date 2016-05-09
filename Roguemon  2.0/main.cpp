@@ -88,13 +88,15 @@ int main()
     
     Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 7, 1,"mewtwo.png"));
-    
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 3, 2,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 2, 7, 1,"mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 2,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 5, 7, 3,"mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 3, 4,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 7, 5,"mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 4, 3, 6,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 1, 7, 7,"mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 10, 3, 8,"greeninja.png"));
 
-
-
-    
 
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
     
@@ -159,11 +161,7 @@ int main()
                     characters.at(id)->walk(walkMap, index, (action+characters.at(id)->getId())%4+1);
                     if(collision(characters.at(0)->getSprite().getPosition(), characters.at(id)->getSprite().getPosition())){  //added method collision
                         std::cout << "Monster " << characters.at(id)->getId() << " wants to fight!"<<std::endl;
-                        BattleLoop(characters.at(0), characters.at(id));
-                        characters.erase(characters.begin()+id);
-                        //characters.at(id)=characters.back();
-                        //characters.pop_back();
-
+                        BattleLoop(&characters, id);
                     }
 
                 }

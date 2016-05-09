@@ -11,12 +11,13 @@ Druid::Druid(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
     if(!playerTexture.loadFromFile("Druid.png"))//carico l immag del persongg
         std::cout<<"Druid not found"<<std::endl;
     playersprite.setTexture(playerTexture);
-    playersprite.setPosition(32,32);
+    playersprite.setPosition(32*position.y,32*position.y);
     source.x = 1;
     source.y = Right;  //cambiare per posizione di partenza
     updateFrame = false;
     frameCounter=0, switchFrame=200, frameSpeed = 500;
     
+    type = "druid";
     atk=60;
     life=70;
 }
