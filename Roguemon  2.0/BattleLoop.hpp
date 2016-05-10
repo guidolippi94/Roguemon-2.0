@@ -48,6 +48,8 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
 
     
     sf::RenderWindow window2(sf::VideoMode(32*16, 32*8), "Battle!!");
+    window2.setMouseCursorVisible(false);
+
     
     sf::Event events;
     

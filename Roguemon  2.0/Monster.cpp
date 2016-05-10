@@ -15,6 +15,8 @@ Monster::Monster(int x, int y, int id, std::string addr):Character(x, y, id){
     source.y = Right;  //cambiare per posizione di partenza
     updateFrame = false;
     frameCounter=0, switchFrame=200, frameSpeed = 500;
+    
+    type="monster";
 }
 
 void Monster::SetTextureState(){

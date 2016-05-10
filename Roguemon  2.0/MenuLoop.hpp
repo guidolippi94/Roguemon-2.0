@@ -14,8 +14,12 @@
 #include "CharacterFactory.hpp"
 
 
+
 int MenuLoop(){
+    
     sf::RenderWindow window1(sf::VideoMode(32*16, 32*8), "Choose your Character");
+    window1.setMouseCursorVisible(false);
+    
     int k=1;  //a seconda dell'ultimo tasto premuto nel menu ritorna o 1 o 2 o 3
 
     

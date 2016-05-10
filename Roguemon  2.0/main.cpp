@@ -13,6 +13,8 @@
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
 #include "BattleLoop.hpp"
+#include "EndLoop.hpp"
+
 #include "Constants.hpp"
 #include "Maps.hpp"
 
@@ -91,15 +93,12 @@ int main()
     
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 2, 7, 1,"mewtwo.png"));
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 2,"greeninja.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 5, 7, 3,"mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 3, 4,"greeninja.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 7, 5,"mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 4, 3, 6,"greeninja.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 1, 7, 7,"mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 10, 3, 8,"greeninja.png"));
+    
 
 
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
+    
+    window.setMouseCursorVisible(false);
     
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
@@ -153,6 +152,11 @@ int main()
             walk = false;
 
         }
+        if (characters.size() == 1) {
+            EndLoop(characters);
+            delete Obs1;  //delete perchè senno da unused
+            return 1;
+        }
         
         if (c.getElapsedTime().asMilliseconds() > 150) {
             srand((unsigned int)c.getElapsedTime().asMicroseconds());
@@ -187,6 +191,7 @@ int main()
         
         window.display();
         window.clear();
+      
         
     } //chiude game loop
     delete Obs1;  //delete perchè senno da unused
