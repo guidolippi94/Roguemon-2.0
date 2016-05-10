@@ -9,7 +9,6 @@
 
 #include "CharacterFactory.hpp"
 #include "Monster.hpp"
-#include "Elf.hpp"
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
 #include "BattleLoop.hpp"
@@ -71,17 +70,17 @@ int main()
     switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0,""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 60, 60, ""));
             characters.push_back(ch);
             break;
         }
         case 2:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Druido, 1, 1, 0,""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Druido, 1, 1, 0, 60, 60, ""));
             characters.push_back(ch);
             break;
         }
         case 3:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Paladino, 1, 1, 0,""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Paladino, 1, 1, 0, 60, 60, ""));
             characters.push_back(ch);
             break;
         }
@@ -91,8 +90,8 @@ int main()
     
     Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 2, 7, 1,"mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 2,"greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 2, 2, 1, 60*4, 10, "mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 2, 60*4, 10, "greeninja.png"));
     
 
 

@@ -6,7 +6,7 @@
 
 #include "Elf.hpp"
 
-Elf::Elf(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
+Elf::Elf(int x, int y, int id, int life, int atk, std::string addr):MainCharacter(x, y, id, life, atk){
     if(!playerTexture.loadFromFile("Elf.png"))//carico l immag del persongg
         std::cout<<"Elf not found"<<std::endl;
     playersprite.setTexture(playerTexture);
@@ -17,8 +17,7 @@ Elf::Elf(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
     frameCounter=0, switchFrame=200, frameSpeed = 500;
     
     type = "elf";
-    atk=50;
-    life=80;
+ 
 }
 
 

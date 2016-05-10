@@ -6,7 +6,7 @@
 
 #include "Paladin.hpp"
 
-Paladin::Paladin(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
+Paladin::Paladin(int x, int y, int id, int life, int atk , std::string addr):MainCharacter(x, y, id, life, atk){
     if(!playerTexture.loadFromFile("Paladin.png"))//carico l immag del persongg
         std::cout<<"Paladin not found"<<std::endl;
     playersprite.setTexture(playerTexture);
@@ -17,8 +17,7 @@ Paladin::Paladin(int x, int y, int id, std::string addr):MainCharacter(x, y, id)
     frameCounter=0, switchFrame=200, frameSpeed = 500;
     
     type = "paladin";
-    atk=80;
-    life=60;
+
 }
 
 

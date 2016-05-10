@@ -22,7 +22,7 @@
 class Druid : public MainCharacter{
 public:
     
-    Druid(int x, int y, int id, std::string addr);
+    Druid(int x, int y, int id, int life, int atk, std::string addr);
     
     ~Druid(){}
     

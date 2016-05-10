@@ -16,7 +16,7 @@ class Character{
     
 public:
     
-    Character(int x, int y, int id);
+    Character(int x, int y, int id, int life, int atk);
     
     virtual ~Character() = 0;
     
@@ -30,6 +30,13 @@ public:
     virtual sf::Sprite getSprite() = 0;
     
     virtual std::string getType() = 0;
+    
+    virtual int getLife() = 0;
+    
+    virtual int getAttack() = 0;
+    
+    virtual void reduceLife(int damage) = 0;
+
     
     virtual void SetTextureState() = 0;
     

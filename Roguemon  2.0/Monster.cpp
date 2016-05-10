@@ -6,7 +6,7 @@
 #include "Monster.hpp"
 #include "Elf.hpp"
 
-Monster::Monster(int x, int y, int id, std::string addr):Character(x, y, id){
+Monster::Monster(int x, int y, int id, int life, int atk , std::string addr):Character(x, y, id, life, atk){
     if(!playerTexture.loadFromFile(addr))//carico l immag del persongg
         std::cout<<addr<<" not found"<<std::endl;
     playersprite.setTexture(playerTexture);
@@ -15,6 +15,7 @@ Monster::Monster(int x, int y, int id, std::string addr):Character(x, y, id){
     source.y = Right;  //cambiare per posizione di partenza
     updateFrame = false;
     frameCounter=0, switchFrame=200, frameSpeed = 500;
+  
     
     type="monster";
 }

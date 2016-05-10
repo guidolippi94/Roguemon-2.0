@@ -23,7 +23,7 @@
 class Monster : public Character{
 public:
     
-    Monster(int x, int y, int id, std::string addr);
+    Monster(int x, int y, int id, int life, int atk, std::string addr);
     
     ~Monster(){}
     
@@ -44,11 +44,22 @@ public:
     std::string getType(){
         return type;
     }
+    int getLife(){
+        return life;
+    }
+    
+    void reduceLife(int damage){
+        life-=damage;
+    }
+    
+    int getAttack(){
+        return atk;
+    }
     
     void SetTextureState();
     
     
-protected:
+
     
 };
 

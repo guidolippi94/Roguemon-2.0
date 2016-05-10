@@ -49,7 +49,7 @@ void EndLoop(std::vector<Character*> chrt){
     
     end.setCharacterSize(36); // in pixels, not points!
     end.setPosition(2*95, 80);
-    info.setCharacterSize(14);
+    info.setCharacterSize(20);
     info.setPosition(3*67, 4*57);
     info.setString("Press [esc] to leave");
     

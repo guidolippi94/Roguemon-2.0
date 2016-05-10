@@ -24,7 +24,7 @@
 class Elf : public MainCharacter{
 public:
     
-    Elf(int x, int y, int id, std::string addr);
+    Elf(int x, int y, int id, int life, int atk, std::string addr);
     
     ~Elf(){}
     

@@ -16,7 +16,7 @@ class CharacterFactory {
 public:
     enum CharacterType {Elfo, Druido, Paladino, Poke};
     
-    static Character* makeCharacter(CharacterFactory::CharacterType type, int x, int y , int id, std::string addr);
+    static Character* makeCharacter(CharacterFactory::CharacterType type, int x, int y , int id, int life, int atk, std::string addr);
 };
 
 #endif /* CharacterFactory_hpp */

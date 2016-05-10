@@ -16,7 +16,7 @@ class MainCharacter :public Character, public Subject{
     
 public:
     
-    MainCharacter(int x, int y, int id):Character(x, y, id){}
+    MainCharacter(int x, int y, int id, int life, int atk):Character(x, y, id, life, atk){}
 
     
     void walk(int** walkMap, int index , int action){
@@ -37,6 +37,21 @@ public:
     std::string getType(){
         return type;
     }
+    
+    int getLife(){
+        return life;
+    }
+    
+    int getAttack(){
+        return atk;
+    }
+
+    
+    void reduceLife(int damage){
+        life-=damage;
+    }
+
+
  
     
     void SetTextureState();

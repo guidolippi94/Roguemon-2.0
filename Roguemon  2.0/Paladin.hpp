@@ -23,7 +23,7 @@
 class Paladin : public MainCharacter{
 public:
     
-    Paladin(int x, int y, int id, std::string addr);
+    Paladin(int x, int y, int id, int life, int atk, std::string addr);
         
     ~Paladin(){
         

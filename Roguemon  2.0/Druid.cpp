@@ -7,7 +7,7 @@
 #include "Druid.hpp"
 
 
-Druid::Druid(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
+Druid::Druid(int x, int y, int id, int life, int atk, std::string addr):MainCharacter(x, y, id, life, atk){
     if(!playerTexture.loadFromFile("Druid.png"))//carico l immag del persongg
         std::cout<<"Druid not found"<<std::endl;
     playersprite.setTexture(playerTexture);
@@ -18,8 +18,6 @@ Druid::Druid(int x, int y, int id, std::string addr):MainCharacter(x, y, id){
     frameCounter=0, switchFrame=200, frameSpeed = 500;
     
     type = "druid";
-    atk=60;
-    life=70;
 }
 
 
