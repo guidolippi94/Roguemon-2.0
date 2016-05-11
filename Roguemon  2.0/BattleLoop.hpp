@@ -13,6 +13,8 @@
 #include <stdio.h>
 #include <stdexcept>
 
+void updateLife(std::string *pl,std::string *el,  Character *p, Character *e, sf::Text *et, sf::Text *ee );
+
 
 
 void BattleLoop(std::vector<Character*> *chrt, int ID){
@@ -89,24 +91,22 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
     //window2.setKeyRepeatEnabled(false);
     window2.setMouseCursorVisible(false);
 
+    std::string playerlifeConv = std::to_string(player->getLife());
+    playerlife.setString(playerlifeConv);
+    
+    
+    std::string enemylifeConv = std::to_string(enemy->getLife());
+    enemylife.setString(enemylifeConv);
     
     sf::Event events;
     
     while (window2.isOpen()){
         
         
-        std::string playerlifeConv = std::to_string(player->getLife());
-        playerlife.setString(playerlifeConv);
-        
-        
-        std::string enemylifeConv = std::to_string(enemy->getLife());
-        enemylife.setString(enemylifeConv);
+        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
     
-        if (enemy->getLife()<=0) {
-            chrt->erase(chrt->begin()+ID);
-            window2.close();
-        }
+     
        
         
         window2.clear();
@@ -118,9 +118,11 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
         window2.draw(playerlife);
         window2.draw(enemylife);
         window2.display();
-        
+        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
         while (window2.pollEvent(events)){
-            
+            updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
             
             if(events.type == sf::Event::Closed){
                 window2.close();
@@ -129,29 +131,43 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
                 window2.close();
             }
             if (events.type == sf::Event::KeyReleased) {
+                updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
                 if (events.key.code==sf::Keyboard::Space) {
+                    updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
                     enemy->reduceLife(player->getAttack());
                     enemyatk=true;
+
                     if (enemy->getLife()<=0) {
+                        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
                         chrt->erase(chrt->begin()+ID);
+                        enemyatk=false;
                         window2.close();
                     }
-                    usleep(3000);
+                    updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
+                  
                     if (enemyatk) {
                         player->reduceLife(enemy->getAttack());
                         enemyatk = false;
+                        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
                     }
                     if (player->getLife()<=0) {
                         chrt->erase(chrt->begin());
                         window2.close();
                     }
+                    updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
                     
                 }
             }
             
            
-            
-            
+            updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
+
             window2.clear();
             window2.draw(battleSprite);
             window2.draw(playerSprite);
@@ -176,6 +192,13 @@ bool collision (sf::Vector2f vp1, sf::Vector2f vp2){  //metodo per collisioni co
     return false;
 }
 
+void updateLife(std::string *pl,std::string *el,  Character *p, Character *e, sf::Text *et, sf::Text *ee){
+    *pl = std::to_string(p->getLife());
+    *el = std::to_string(e->getLife());
+    et->setString(*pl);
+    ee->setString(*el);
 
+
+}
 
 #endif /* BattleLoop_hpp */
