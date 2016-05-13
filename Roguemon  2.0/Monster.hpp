@@ -58,6 +58,10 @@ public:
     
     void SetTextureState();
     
+    virtual void setHp(int hp){
+        this->life = hp;
+    }
+    
     
 
     

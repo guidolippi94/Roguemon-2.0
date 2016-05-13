@@ -13,17 +13,12 @@
 #include <stdexcept>
 
 
-void updateLife(Character *p, Character *e, sf::Text *et, sf::Text *ee){
-    et->setString("hp: " + std::to_string(p->getLife()));
-    ee->setString("hp: " + std::to_string(e->getLife()));
-}
 
 void BattleLoop(std::vector<Character*> *chrt, int ID){
     
     Character *player = chrt->at(0);
     Character *enemy =  chrt->at(ID);
     
-  
     
     //grafica battle
     sf::Texture playerTexture, enemyTexture, battleTexture;
@@ -44,7 +39,7 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
     recte.setPosition(20, 10);
     
     sf::Font font;
-    if (!font.loadFromFile("Lobster_1.3.otf"))
+    if (!font.loadFromFile("LeagueGothic.otf"))
     {
         std::cout<< "failed to open font"<<std::endl;
     }
@@ -59,13 +54,15 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
     playerlife.setFont(font);
     enemylife.setFont(font);
     
-    playerlife.setCharacterSize(20);
-    enemylife.setCharacterSize(20);
     
+    playerlife.setCharacterSize(30);
+    enemylife.setCharacterSize(30);
+
     playerlife.setPosition(402, 200);
     enemylife.setPosition(22, 10);
 
-
+    playerlife.setString("hp: " + std::to_string(player->getLife()));
+    enemylife.setString("hp: " + std::to_string(enemy->getLife()));
     
     std::string playerpng = player->getType() + "battle.png";
     if(!playerTexture.loadFromFile(playerpng))
@@ -94,7 +91,6 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
     //window2.setKeyRepeatEnabled(false);
     window2.setMouseCursorVisible(false);
 
-    updateLife(player, enemy, &playerlife, &enemylife);
 
     
     sf::Event events;
@@ -127,8 +123,12 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
 
                 if (events.key.code==sf::Keyboard::Space) {
 
-                    enemy->reduceLife(player->getAttack());
-                    updateLife(player, enemy, &playerlife, &enemylife);
+                    //enemy->reduceLife(player->getAttack());
+                    enemy->setHp(enemy->getLife()-player->getAttack());
+                   
+                    playerlife.setString("hp: " + std::to_string(player->getLife()));
+                    enemylife.setString("hp: " + std::to_string(enemy->getLife()));
+                    
 
                     enemyatk=true;
 
@@ -141,8 +141,14 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
 
                   
                     if (enemyatk) {
-                        player->reduceLife(enemy->getAttack());
-                        updateLife(player, enemy, &playerlife, &enemylife);
+                        //player->reduceLife(enemy->getAttack());
+                        player->setHp(player->getLife()-enemy->getAttack());
+                        playerlife.setString("");
+                        enemylife.setString("");
+                        
+
+                        playerlife.setString("hp: " + std::to_string(player->getLife()));
+                        enemylife.setString("hp: " + std::to_string(enemy->getLife()));
 
                         enemyatk = false;
 

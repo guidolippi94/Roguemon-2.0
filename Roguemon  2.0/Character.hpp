@@ -36,6 +36,8 @@ public:
     virtual int getAttack() = 0;
     
     virtual void reduceLife(int damage) = 0;
+    
+    virtual void setHp(int hp) = 0;
 
     
     virtual void SetTextureState() = 0;

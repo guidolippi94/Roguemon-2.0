@@ -50,6 +50,10 @@ public:
     void reduceLife(int damage){
         life-=damage;
     }
+    
+    virtual void setHp(int hp){
+        this->life = hp;
+    }
 
 
  

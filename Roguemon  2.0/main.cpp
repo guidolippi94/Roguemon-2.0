@@ -70,7 +70,7 @@ int main()
     switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 60, 60, ""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 120, 60, ""));
             characters.push_back(ch);
             break;
         }
