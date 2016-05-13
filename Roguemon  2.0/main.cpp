@@ -91,7 +91,10 @@ int main()
     Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 2, 2, 1, 60*4, 10, "mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 2, 60*4, 10, "greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 1, 2, 60*4, 10, "greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 4, 1, 3, 60*4, 10, "greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 4, 60*4, 10, "charizard.png"));
+
     
 
 
@@ -151,18 +154,23 @@ int main()
             walk = false;
 
         }
-        if (characters.size() == 1) {
+   
+        if (characters.size() == 1|| characters.at(0)->getType() == "monster") {
             EndLoop(characters);
             delete Obs1;  //delete perchè senno da unused
             return 1;
         }
-        
         if (c.getElapsedTime().asMilliseconds() > 150) {
             srand((unsigned int)c.getElapsedTime().asMicroseconds());
             int action = rand() % 4 + 1;
             for(int index = 2 ; index < 33 ; index++){
                 for (int id=1; id<characters.size(); id++ ){  //non è il for completo cosi salta il mainplayer!
                     characters.at(id)->walk(walkMap, index, (action+characters.at(id)->getId())%4+1);
+                    if (characters.size() == 1|| characters.at(0)->getType() == "monster") {
+                        EndLoop(characters);
+                        delete Obs1;  //delete perchè senno da unused
+                        return 1;
+                    }
                     if(collision(characters.at(0)->getSprite().getPosition(), characters.at(id)->getSprite().getPosition())){  //added method collision
                         std::cout << "Monster " << characters.at(id)->getId() << " wants to fight!"<<std::endl;
                         BattleLoop(&characters, id);

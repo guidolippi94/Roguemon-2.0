@@ -7,20 +7,23 @@
 
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <stdio.h>
 #include <unistd.h>
 #include <iostream>
 #include <stdio.h>
 #include <stdexcept>
 
-void updateLife(std::string *pl,std::string *el,  Character *p, Character *e, sf::Text *et, sf::Text *ee );
 
-
+void updateLife(Character *p, Character *e, sf::Text *et, sf::Text *ee){
+    et->setString("hp: " + std::to_string(p->getLife()));
+    ee->setString("hp: " + std::to_string(e->getLife()));
+}
 
 void BattleLoop(std::vector<Character*> *chrt, int ID){
     
     Character *player = chrt->at(0);
     Character *enemy =  chrt->at(ID);
+    
+  
     
     //grafica battle
     sf::Texture playerTexture, enemyTexture, battleTexture;
@@ -91,22 +94,14 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
     //window2.setKeyRepeatEnabled(false);
     window2.setMouseCursorVisible(false);
 
-    std::string playerlifeConv = std::to_string(player->getLife());
-    playerlife.setString(playerlifeConv);
-    
-    
-    std::string enemylifeConv = std::to_string(enemy->getLife());
-    enemylife.setString(enemylifeConv);
+    updateLife(player, enemy, &playerlife, &enemylife);
+
     
     sf::Event events;
     
     while (window2.isOpen()){
         
         
-        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
-
-    
-     
        
         
         window2.clear();
@@ -118,10 +113,8 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
         window2.draw(playerlife);
         window2.draw(enemylife);
         window2.display();
-        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
         while (window2.pollEvent(events)){
-            updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
             
             if(events.type == sf::Event::Closed){
@@ -131,42 +124,39 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
                 window2.close();
             }
             if (events.type == sf::Event::KeyReleased) {
-                updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
                 if (events.key.code==sf::Keyboard::Space) {
-                    updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
                     enemy->reduceLife(player->getAttack());
+                    updateLife(player, enemy, &playerlife, &enemylife);
+
                     enemyatk=true;
 
                     if (enemy->getLife()<=0) {
-                        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
                         chrt->erase(chrt->begin()+ID);
                         enemyatk=false;
                         window2.close();
                     }
-                    updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
                   
                     if (enemyatk) {
                         player->reduceLife(enemy->getAttack());
+                        updateLife(player, enemy, &playerlife, &enemylife);
+
                         enemyatk = false;
-                        updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
                     }
                     if (player->getLife()<=0) {
                         chrt->erase(chrt->begin());
                         window2.close();
                     }
-                    updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
                     
                 }
             }
             
            
-            updateLife(&playerlifeConv, &enemylifeConv, player, enemy, &playerlife, &enemylife);
 
             window2.clear();
             window2.draw(battleSprite);
@@ -192,13 +182,5 @@ bool collision (sf::Vector2f vp1, sf::Vector2f vp2){  //metodo per collisioni co
     return false;
 }
 
-void updateLife(std::string *pl,std::string *el,  Character *p, Character *e, sf::Text *et, sf::Text *ee){
-    *pl = std::to_string(p->getLife());
-    *el = std::to_string(e->getLife());
-    et->setString(*pl);
-    ee->setString(*el);
-
-
-}
 
 #endif /* BattleLoop_hpp */
