@@ -14,7 +14,7 @@ Monster::Monster(int x, int y, int id, int life, int atk , std::string addr):Cha
     source.x = 1;
     source.y = Right;  //cambiare per posizione di partenza
     updateFrame = false;
-    frameCounter=0, switchFrame=200, frameSpeed = 500;
+    frameCounter=0, switchFrame=100, frameSpeed = 500;
   
     
     type="monster";
@@ -38,7 +38,9 @@ void Monster::SetTextureState(){
 
 void Monster::walk(int** walkMap, int index , int action)
 {
-    if ( action == 1){ //indicheranno dove si muove il player nel display
+    abs->walkStrategy(walkMap, index, &position, &source, &updateFrame, &playersprite, &playerTexture, &frameCounter);
+    
+    /*if ( action == 1){ //indicheranno dove si muove il player nel display
         source.y = Up;
         SetTextureState();
         if(walkMap[position.x-1][position.y] != 1){
@@ -105,7 +107,7 @@ void Monster::walk(int** walkMap, int index , int action)
                 SetTextureState();
             }
         }
-    }
+    }*/
     
 }
 

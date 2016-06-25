@@ -20,6 +20,10 @@
 //per observer
 #include "Map.hpp"
 #include "Maps.hpp"
+#include "EnemyStrategy.hpp"
+#include "EnemyStrategy2.hpp"
+#include "EnemyStrategy3.hpp"
+#include "EnemyStrategy4.hpp"
 
 
 
@@ -30,8 +34,6 @@ int main()
     if (!icon.loadFromFile("icon.png")) {
         return EXIT_FAILURE;
     }
-    
-    
 
     //movimento telecamera
     sf::Vector2i positionview(0,0);
@@ -46,7 +48,6 @@ int main()
     walkMap = createWalkable(dimMapy, dimMapx);
     level = createLevel(dimMapy, dimMapx);
     
-
     bool walk = true;
     int p=0;
     
@@ -90,12 +91,15 @@ int main()
     
     Map* Obs1 = new Map((MainCharacter*)ch, baseMap);
     
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 2, 2, 1, 60*4, 10, "mewtwo.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 1, 2, 60*4, 10, "greeninja.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 4, 1, 3, 60*4, 10, "greeninja.png"));
-    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 3, 4, 60*4, 10, "charizard.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 3, 9, 1, 60*4, 10, "mewtwo.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 7, 1, 2, 60*4, 10, "greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 12, 10, 3, 60*4, 10, "greeninja.png"));
+    characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 10, 4, 60*4, 10, "charizard.png"));
 
-    
+    ((Monster*) characters.at(1))->SetStrategy(new EnemyStrategy4());
+    ((Monster*) characters.at(2))->SetStrategy(new EnemyStrategy());
+    ((Monster*) characters.at(3))->SetStrategy(new EnemyStrategy3());
+    ((Monster*) characters.at(4))->SetStrategy(new EnemyStrategy2());
 
 
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
@@ -161,11 +165,11 @@ int main()
             return 1;
         }
         if (c.getElapsedTime().asMilliseconds() > 150) {
-            srand((unsigned int)c.getElapsedTime().asMicroseconds());
-            int action = rand() % 4 + 1;
+            int action = 0;
             for(int index = 2 ; index < 33 ; index++){
                 for (int id=1; id<characters.size(); id++ ){  //non è il for completo cosi salta il mainplayer!
-                    characters.at(id)->walk(walkMap, index, (action+characters.at(id)->getId())%4+1);
+                    characters.at(id)->walk(walkMap, index, action);
+                    
                     if (characters.size() == 1|| characters.at(0)->getType() == "monster") {
                         EndLoop(characters);
                         delete Obs1;  //delete perchè senno da unused

@@ -20,9 +20,6 @@ Druid::Druid(int x, int y, int id, int life, int atk, std::string addr):MainChar
     type = "druid";
 }
 
-
-
-
 void Druid::walk(int** walkMap , int index , int action)
 {
     if ( action == 1){ //indicheranno dove si muove il player nel display

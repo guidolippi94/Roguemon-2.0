@@ -12,8 +12,6 @@ int** walkMap;
 
 int* level;
 
-
-
 int** createBaseMap(unsigned height, unsigned width)
 {
     int** array2D = 0;

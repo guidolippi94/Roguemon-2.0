@@ -10,7 +10,7 @@
 #include "Constants.hpp"
 #include "Subject.hpp"
 
-
+#include "AbstractStrategy.hpp"
 
 class Character{
     
@@ -39,9 +39,8 @@ public:
     
     virtual void setHp(int hp) = 0;
 
-    
     virtual void SetTextureState() = 0;
-    
+        
 protected:
     
     int id;

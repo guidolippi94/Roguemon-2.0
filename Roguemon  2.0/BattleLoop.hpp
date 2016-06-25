@@ -76,7 +76,7 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
     if(!enemyTexture.loadFromFile(enemypng))
         std::cout<<"Error, could not load  "<<enemypng<<std::endl;
     enemySprite.setTexture(enemyTexture);
-    enemySprite.setPosition(32*11,50);
+    enemySprite.setPosition(32*10,50);
     
     if(!battleTexture.loadFromFile("battlebackground.png"))
         std::cout<<"Error, could not load battlebackground texture"<<std::endl;
@@ -123,7 +123,6 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
 
                 if (events.key.code==sf::Keyboard::Space) {
 
-                    //enemy->reduceLife(player->getAttack());
                     enemy->setHp(enemy->getLife()-player->getAttack());
                    
                     playerlife.setString("hp: " + std::to_string(player->getLife()));
@@ -141,7 +140,6 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
 
                   
                     if (enemyatk) {
-                        //player->reduceLife(enemy->getAttack());
                         player->setHp(player->getLife()-enemy->getAttack());
                         playerlife.setString("");
                         enemylife.setString("");
@@ -161,8 +159,6 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
                     
                 }
             }
-            
-           
 
             window2.clear();
             window2.draw(battleSprite);

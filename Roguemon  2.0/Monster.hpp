@@ -1,5 +1,3 @@
-
-
 #ifndef Monster_hpp
 #define Monster_hpp
 
@@ -15,6 +13,7 @@
 #include <fstream>
 #include <cctype>
 
+#include "AbstractStrategy.hpp"
 #include "TileMap.hpp"
 #include "Character.hpp"
 #include "Constants.hpp"
@@ -62,8 +61,13 @@ public:
         this->life = hp;
     }
     
+    void SetStrategy(AbstractStrategy *abs){
+        this->abs = abs;
+    }
     
-
+private:
+    
+    AbstractStrategy* abs;
     
 };
 

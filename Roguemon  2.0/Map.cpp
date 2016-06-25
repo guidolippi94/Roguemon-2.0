@@ -15,7 +15,6 @@ Map::Map(MainCharacter* p, int** mapCtor) {    //alla costruzione
             musicMap[i][j]=mapCtor[i][j];
         }
     }
-
 }
 
 Map::~Map(){

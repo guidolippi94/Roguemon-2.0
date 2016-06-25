@@ -46,7 +46,6 @@ public:
         return atk;
     }
 
-    
     void reduceLife(int damage){
         life-=damage;
     }
@@ -54,9 +53,6 @@ public:
     virtual void setHp(int hp){
         this->life = hp;
     }
-
-
- 
     
     void SetTextureState();
     
@@ -69,6 +65,7 @@ public:
     void notify();
    
 protected:
+    
 };
 
 

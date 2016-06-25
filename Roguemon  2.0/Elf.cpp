@@ -1,9 +1,6 @@
-
-
 #include <stdio.h>
 #include <unistd.h>
 #include <SFML/Graphics.hpp>
-
 #include "Elf.hpp"
 
 Elf::Elf(int x, int y, int id, int life, int atk, std::string addr):MainCharacter(x, y, id, life, atk){
@@ -19,8 +16,6 @@ Elf::Elf(int x, int y, int id, int life, int atk, std::string addr):MainCharacte
     type = "elf";
  
 }
-
-
 
 
 void Elf::walk(int** walkMap , int index , int action)

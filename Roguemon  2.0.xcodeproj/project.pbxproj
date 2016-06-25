@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5056A4D1D1E958100A57966 /* EnemyStrategy2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5056A4B1D1E958100A57966 /* EnemyStrategy2.cpp */; };
+		A5056A501D1E97BF00A57966 /* EnemyStrategy3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5056A4E1D1E97BF00A57966 /* EnemyStrategy3.cpp */; };
+		A5056A531D1E9A6700A57966 /* EnemyStrategy4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A5056A511D1E9A6700A57966 /* EnemyStrategy4.cpp */; };
+		A515710E1D1DA46D00FAEBC7 /* AbstractStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A515710C1D1DA46D00FAEBC7 /* AbstractStrategy.cpp */; };
+		A51571111D1DA4D400FAEBC7 /* EnemyStrategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A515710F1D1DA4D400FAEBC7 /* EnemyStrategy.cpp */; };
 		A56810D61CC6288B00A92F4C /* Druid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A56810D41CC6288B00A92F4C /* Druid.cpp */; };
 		A56810D91CC6291900A92F4C /* Paladin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A56810D71CC6291900A92F4C /* Paladin.cpp */; };
 		A59744861CB8508300517644 /* CharacterFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A59744841CB8508300517644 /* CharacterFactory.cpp */; };
@@ -21,6 +26,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A5056A4B1D1E958100A57966 /* EnemyStrategy2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyStrategy2.cpp; sourceTree = "<group>"; };
+		A5056A4C1D1E958100A57966 /* EnemyStrategy2.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyStrategy2.hpp; sourceTree = "<group>"; };
+		A5056A4E1D1E97BF00A57966 /* EnemyStrategy3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyStrategy3.cpp; sourceTree = "<group>"; };
+		A5056A4F1D1E97BF00A57966 /* EnemyStrategy3.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyStrategy3.hpp; sourceTree = "<group>"; };
+		A5056A511D1E9A6700A57966 /* EnemyStrategy4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyStrategy4.cpp; sourceTree = "<group>"; };
+		A5056A521D1E9A6700A57966 /* EnemyStrategy4.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyStrategy4.hpp; sourceTree = "<group>"; };
+		A515710C1D1DA46D00FAEBC7 /* AbstractStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractStrategy.cpp; sourceTree = "<group>"; };
+		A515710D1D1DA46D00FAEBC7 /* AbstractStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AbstractStrategy.hpp; sourceTree = "<group>"; };
+		A515710F1D1DA4D400FAEBC7 /* EnemyStrategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EnemyStrategy.cpp; sourceTree = "<group>"; };
+		A51571101D1DA4D400FAEBC7 /* EnemyStrategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = EnemyStrategy.hpp; sourceTree = "<group>"; };
 		A527A3D41CC7D16C00D849A3 /* MenuLoop.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MenuLoop.hpp; sourceTree = "<group>"; };
 		A527A3D61CC7E5A700D849A3 /* Constants.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Constants.hpp; sourceTree = "<group>"; };
 		A56810D41CC6288B00A92F4C /* Druid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Druid.cpp; sourceTree = "<group>"; };
@@ -95,8 +110,16 @@
 				A5E980F61CCBD38900AABF3A /* Music.hpp */,
 				A5E980F51CCBD38900AABF3A /* Music.cpp */,
 				A5E980F11CCBB35C00AABF3A /* Subject.hpp */,
-				A527A3D41CC7D16C00D849A3 /* MenuLoop.hpp */,
-				A5F868461CE1F1D300691692 /* EndLoop.hpp */,
+				A515710C1D1DA46D00FAEBC7 /* AbstractStrategy.cpp */,
+				A515710D1D1DA46D00FAEBC7 /* AbstractStrategy.hpp */,
+				A51571101D1DA4D400FAEBC7 /* EnemyStrategy.hpp */,
+				A515710F1D1DA4D400FAEBC7 /* EnemyStrategy.cpp */,
+				A5056A4C1D1E958100A57966 /* EnemyStrategy2.hpp */,
+				A5056A4B1D1E958100A57966 /* EnemyStrategy2.cpp */,
+				A5056A4F1D1E97BF00A57966 /* EnemyStrategy3.hpp */,
+				A5056A4E1D1E97BF00A57966 /* EnemyStrategy3.cpp */,
+				A5056A521D1E9A6700A57966 /* EnemyStrategy4.hpp */,
+				A5056A511D1E9A6700A57966 /* EnemyStrategy4.cpp */,
 				A7FEA9441CB6ADEC0036ED36 /* Character.hpp */,
 				A7FEA9431CB6ADEC0036ED36 /* Character.cpp */,
 				A5F272F91CCFADFF005B26F3 /* MainCharacter.hpp */,
@@ -109,6 +132,8 @@
 				A56810D71CC6291900A92F4C /* Paladin.cpp */,
 				A7FEA94D1CB6AE660036ED36 /* Monster.hpp */,
 				A7FEA94C1CB6AE660036ED36 /* Monster.cpp */,
+				A527A3D41CC7D16C00D849A3 /* MenuLoop.hpp */,
+				A5F868461CE1F1D300691692 /* EndLoop.hpp */,
 				A7FEA94A1CB6AE3C0036ED36 /* TileMap.hpp */,
 				A7FEA9491CB6AE3C0036ED36 /* TileMap.cpp */,
 				A7FEA9351CB6AB850036ED36 /* Resources */,
@@ -215,10 +240,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5056A501D1E97BF00A57966 /* EnemyStrategy3.cpp in Sources */,
+				A515710E1D1DA46D00FAEBC7 /* AbstractStrategy.cpp in Sources */,
 				A7FEA94B1CB6AE3C0036ED36 /* TileMap.cpp in Sources */,
 				A7FEA9481CB6AE160036ED36 /* Elf.cpp in Sources */,
 				A56810D61CC6288B00A92F4C /* Druid.cpp in Sources */,
+				A5056A4D1D1E958100A57966 /* EnemyStrategy2.cpp in Sources */,
 				A7FEA94E1CB6AE660036ED36 /* Monster.cpp in Sources */,
+				A51571111D1DA4D400FAEBC7 /* EnemyStrategy.cpp in Sources */,
+				A5056A531D1E9A6700A57966 /* EnemyStrategy4.cpp in Sources */,
 				A7FEA9341CB6AB850036ED36 /* main.cpp in Sources */,
 				A5E980F71CCBD38900AABF3A /* Music.cpp in Sources */,
 				A5E980F41CCBB49F00AABF3A /* Map.cpp in Sources */,

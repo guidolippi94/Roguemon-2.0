@@ -31,8 +31,6 @@ public:
 
     void walk(int** walkMap, int index , int action);
     
-    
-    
 };
 
 
