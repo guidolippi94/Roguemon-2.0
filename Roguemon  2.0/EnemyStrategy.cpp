@@ -6,7 +6,6 @@ void EnemyStrategy::walkStrategy(int** walkMap, int index, sf::Vector2i* positio
     
     int action = movements[i];
     
-    //iterator = (iterator + buffer_size - 1) % buffer_size
     
     if ( action == 1){ //indicheranno dove si muove il player nel display
         source->y = Down;

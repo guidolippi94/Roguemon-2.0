@@ -6,24 +6,22 @@
 #include <stdexcept>
 #include <cmath>
 
-
 #include "CharacterFactory.hpp"
 #include "Monster.hpp"
 #include "TileMap.hpp"
 #include "MenuLoop.hpp"
 #include "BattleLoop.hpp"
 #include "EndLoop.hpp"
-
-#include "Constants.hpp"
-#include "Maps.hpp"
-
-//per observer
-#include "Map.hpp"
-#include "Maps.hpp"
 #include "EnemyStrategy.hpp"
 #include "EnemyStrategy2.hpp"
 #include "EnemyStrategy3.hpp"
 #include "EnemyStrategy4.hpp"
+
+#include "Constants.hpp"
+//per observer
+#include "Map.hpp"
+#include "Maps.hpp"
+
 
 
 
@@ -71,7 +69,7 @@ int main()
     switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 120, 60, ""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 1200, 10, ""));
             characters.push_back(ch);
             break;
         }

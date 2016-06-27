@@ -20,7 +20,6 @@ public:
     
     virtual ~Character() = 0;
     
-    
     virtual int getId() = 0;
     
     virtual void walk(int** walkMap, int index , int action) = 0;

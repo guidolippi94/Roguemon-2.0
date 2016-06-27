@@ -1,5 +1,3 @@
-
-
 #ifndef EnemyStrategy2_hpp
 #define EnemyStrategy2_hpp
 

@@ -122,13 +122,21 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
             if (events.type == sf::Event::KeyReleased) {
 
                 if (events.key.code==sf::Keyboard::Space) {
-
-                    enemy->setHp(enemy->getLife()-player->getAttack());
-                   
-                    playerlife.setString("hp: " + std::to_string(player->getLife()));
-                    enemylife.setString("hp: " + std::to_string(enemy->getLife()));
                     
+                    int succesnem = rand()%100;
+                    int succesplay = rand()%100;
 
+                    std::cout<<succesnem<<"-----"<<succesplay<<std::endl;
+                    
+                    if (succesplay<60) {
+                        enemy->setHp(enemy->getLife()-player->getAttack());
+                        
+                        playerlife.setString("hp: " + std::to_string(player->getLife()));
+                        enemylife.setString("hp: " + std::to_string(enemy->getLife()));
+                        
+
+                    }
+                    
                     enemyatk=true;
 
                     if (enemy->getLife()<=0) {
@@ -140,9 +148,11 @@ void BattleLoop(std::vector<Character*> *chrt, int ID){
 
                   
                     if (enemyatk) {
-                        player->setHp(player->getLife()-enemy->getAttack());
-                        playerlife.setString("");
-                        enemylife.setString("");
+                        if (succesnem<60) {
+                            player->setHp(player->getLife()-enemy->getAttack());
+                            playerlife.setString("");
+                            enemylife.setString("");
+                        }
                         
 
                         playerlife.setString("hp: " + std::to_string(player->getLife()));
