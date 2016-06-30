@@ -21,7 +21,7 @@
 //per observer
 #include "Map.hpp"
 #include "Maps.hpp"
-
+ 
 
 
 
@@ -40,9 +40,17 @@ int main()
 
     baseMap = createBaseMap(dimMapy, dimMapx);
     generateTrees(dimMapy, dimMapy, baseMap);
-    baseMap[1][1]=0;
+    baseMap[1][1]=5;
+   
     createArea(2, 2, 30, 10, 's');
     createArea(5, 5, 3, 3, 'a');
+    
+    baseMap[10][5]=3;
+    baseMap[10][6]=3;
+    baseMap[10][7]=3;
+    baseMap[9][5]=3;
+    baseMap[9][6]=3;
+    baseMap[9][7]=3;
     walkMap = createWalkable(dimMapy, dimMapx);
     level = createLevel(dimMapy, dimMapx);
     
