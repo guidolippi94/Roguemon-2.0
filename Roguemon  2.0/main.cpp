@@ -77,7 +77,7 @@ int main()
     switch (p) {  //a seconda di cosa ritorna menuloop:...
             
         case 1:{
-            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 1200, 10, ""));
+            ch = (CharacterFactory::makeCharacter(CharacterFactory::Elfo, 1, 1, 0, 200, 60, ""));
             characters.push_back(ch);
             break;
         }
@@ -102,6 +102,7 @@ int main()
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 12, 10, 3, 60*4, 10, "greeninja.png"));
     characters.push_back(CharacterFactory::makeCharacter(CharacterFactory::Poke, 6, 10, 4, 60*4, 10, "charizard.png"));
 
+
     ((Monster*) characters.at(1))->SetStrategy(new EnemyStrategy4());
     ((Monster*) characters.at(2))->SetStrategy(new EnemyStrategy());
     ((Monster*) characters.at(3))->SetStrategy(new EnemyStrategy3());
@@ -110,7 +111,7 @@ int main()
 
     sf::RenderWindow window(sf::VideoMode(screenY, screenX), "Roguemon");
     
-    window.setMouseCursorVisible(false);
+    //window.setMouseCursorVisible(false);
     
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
@@ -132,8 +133,12 @@ int main()
         }
         
         // draw the map
+        //std::cerr<<"Rendering MainisOpen: start"<<std::endl;
+
         window.clear();
         window.draw(map);
+        //std::cerr<<"Rendering MainisClosed: end"<<std::endl;
+
         view.reset(sf::FloatRect(positionview.x, positionview.y, screenDimensions.x, screenDimensions.y));
 
         
@@ -183,16 +188,20 @@ int main()
                     }
                     if(collision(characters.at(0)->getSprite().getPosition(), characters.at(id)->getSprite().getPosition())){  //added method collision
                         std::cout << "Monster " << characters.at(id)->getId() << " wants to fight!"<<std::endl;
+                        window.setActive(false);
                         BattleLoop(&characters, id);
+                        window.setActive(true);
                     }
 
                 }
+
                 window.clear();
                 window.draw(map);
                 for (itr = characters.begin() ; itr != characters.end() ; itr++){
                     window.draw((*itr)->getSprite());
                 }
                 window.display();
+
                 usleep(6000);
             }
             walk=true;

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "Constants.hpp"
 #include "Observer.hpp"
-#include "Elf.hpp"
+#include "MainCharacter.hpp"
 #include "Music.hpp"
 
 class Map : public Observer{
